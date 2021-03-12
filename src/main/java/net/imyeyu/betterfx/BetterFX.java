@@ -13,11 +13,6 @@ import net.imyeyu.betterfx.extend.BorderX;
  */
 public class BetterFX {
 
-	/** 资源路径 */
-	public static final String RES_PATH = "/net/imyeyu/px/res/";
-	/** 样式文件 */
-	public static final String CSS = RES_PATH + "pixel.css";
-
 	/** 白色 */
 	public static final Paint WHITE       = Paint.valueOf("#FFF");
 	/** 品红 */
