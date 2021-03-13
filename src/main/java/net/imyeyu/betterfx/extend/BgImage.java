@@ -1,6 +1,7 @@
 package net.imyeyu.betterfx.extend;
 
 import javafx.geometry.Side;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -153,5 +154,45 @@ public class BgImage {
 	 */
 	public Background build() {
 		return new Background(new BackgroundImage(img, repeatX, repeatY, pos, size));
+	}
+
+
+	/**
+	 * JavaFX 设置组件背景，底色为默认
+	 *
+	 * @param node  节点
+	 * @param url   背景路径
+	 * @param width 宽度
+	 * @param x     X 轴偏移
+	 * @param y     Y 轴偏移
+	 */
+	public static void setBg(Node node, String url, int width, int x, int y) {
+		node.setStyle(
+			"-fx-background-size: " + width + ";" +
+			"-fx-background-image: url('" + url + "');" +
+			"-fx-background-insets: 0;" +
+			"-fx-background-repeat: no-repeat;" +
+			"-fx-background-position: " + x + " " + y
+		);
+	}
+
+	/**
+	 * JavaFX 设置组件背景，底色为透明
+	 *
+	 * @param node  节点
+	 * @param url   背景路径
+	 * @param width 宽度
+	 * @param x     X 轴偏移
+	 * @param y     Y 轴偏移
+	 */
+	public static void setBgTp(Node node, String url, int width, int x, int y) {
+		node.setStyle(
+			"-fx-background-size: " + width + ";" +
+			"-fx-background-image: url('" + url + "');" +
+			"-fx-background-color: transparent;" +
+			"-fx-background-insets: 0;" +
+			"-fx-background-repeat: no-repeat;" +
+			"-fx-background-position: " + x + " " + y
+		);
 	}
 }
