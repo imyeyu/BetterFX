@@ -10,19 +10,19 @@
 
 #### 1. 改进的 AnchorPane
 原来的
-```
+```java
 AnchorPane.setTopAnchor(node, 10d);
 AnchorPane.setLeftAnchor(node, 10d);
 AnchorPane.setRightAnchor(node, 10d);
 AnchorPane.setBottomAnchor(node, 10d);
 ```
 现在可以这样用
-```
+```java
 AnchorPaneX.def(node, 10, 10, 10, 10);
 ```
 #### 2. 背景填充 BgFill
 原来的
-```
+```java
 // 纯色背景
 new Background(new BackgroundFill(Paint.valueOf("red"), CornerRadii.EMPTY, new Insets(10)));
 // 渐变背景
@@ -34,7 +34,7 @@ new Background(new BackgroundFill(
 ));
 ```
 现在可以这样用
-```
+```java
 // 纯色背景
 new BgFill("red").insets(new Insets(10)).build();
 // 渐变背景
@@ -44,18 +44,18 @@ BgFill.test();
 ```
 #### 3. 图像背景 BgImage
 原来的
-```
+```java
 new Background(new BackgroundImage(new Image("/img.png"), BackgroundRepeat.NOT_REPEAT, BackgroundRepeat.NOT_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT));
 ```
 现在可以这样用
-```
+```java
 new BgImage("/img.png").build();
 // 自适应背景
 new BgImage("/bg.png").cover().build();
 ```
 #### 4. 改进的 Border
 原来的
-```
+```java
 new Border(new BorderStroke(
 	Paint.valueOf("red"), Paint.valueOf("red"), Paint.valueOf("red"), Paint.valueOf("red"),
 	BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID,
@@ -65,7 +65,7 @@ new Border(new BorderStroke(
 ));
 ```
 现在可以这么做
-```
+```java
 new BorderX("red").build();
 // 不同宽度
 new BorderX("red").width(1, 2, 3, 4).build();
@@ -80,7 +80,7 @@ new BorderX("red").top().build();
 ## FX 多任务
 
 #### 1. 快速构造异步执行 RunAsync&lt;T&gt;
-```
+```java
 new RunAsync<String> {
 
 	public String call() throws Exception {
@@ -95,7 +95,7 @@ new RunAsync<String> {
 
 #### 2. 快速构造稍后执行 RunLater
 注意这是异步的
-```
+```java
 RunLater.time(1000).event(() -> {
 	// 延时 1 秒后执行（属于 FX 线程）
 })
