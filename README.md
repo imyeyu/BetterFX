@@ -6,22 +6,30 @@
 以上 YeyuUtils 和 iTools 都废弃了
 
 ---------
+
 ## FX 扩展
 
 #### 1. 改进的 AnchorPane
+
 原来的
+
 ```java
 AnchorPane.setTopAnchor(node, 10d);
 AnchorPane.setLeftAnchor(node, 10d);
 AnchorPane.setRightAnchor(node, 10d);
 AnchorPane.setBottomAnchor(node, 10d);
 ```
+
 现在可以这样用
+
 ```java
 AnchorPaneX.def(node, 10, 10, 10, 10);
 ```
+
 #### 2. 背景填充 BgFill
+
 原来的
+
 ```java
 // 纯色背景
 new Background(new BackgroundFill(Paint.valueOf("red"), CornerRadii.EMPTY, new Insets(10)));

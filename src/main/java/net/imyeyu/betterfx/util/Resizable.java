@@ -5,6 +5,11 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * 让无系统边框窗体支持下、右下、右缩放
+ *
+ * 夜雨 创建于 2021/4/9 21:58
+ */
 public class Resizable {
 
 	private static boolean isRight, isBottom, isBottomRight;

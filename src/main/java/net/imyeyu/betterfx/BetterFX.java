@@ -29,6 +29,8 @@ public class BetterFX {
 	public static final Paint GRAY        = Paint.valueOf("#666");
 	/** 天蓝 */
 	public static final Paint BLUE        = Paint.valueOf("#008DCB");
+	/** 灰白（程序默认底色 F4F4F4） */
+	public static final Paint GRAY_WHITE  = Paint.valueOf("#F4F4F4");
 	/** 亮灰 */
 	public static final Paint LIGHT_GRAY  = Paint.valueOf("#CCC");
 	/** 深灰 */
