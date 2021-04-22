@@ -73,6 +73,18 @@ public class BgFill {
 		this.insets = insets;
 		return this;
 	}
+	public BgFill insets(double insets) {
+		this.insets = new Insets(insets);
+		return this;
+	}
+	public BgFill insets(double topBottom, double leftRight) {
+		this.insets = new Insets(topBottom, leftRight, topBottom, leftRight);
+		return this;
+	}
+	public BgFill insets(double top, double right, double bottom, double left) {
+		this.insets = new Insets(top, right, bottom, left);
+		return this;
+	}
 	
 	/**
 	 * 从左往右渐变
