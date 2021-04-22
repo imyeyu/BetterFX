@@ -1,0 +1,175 @@
+/*
+    - BetterFX 的样式表 -
+
+    1. 主体颜色为灰色，辅助色为靛青 #177CB0
+
+*/
+@font-face {
+    src: url('./zpix.ttf');
+}
+
+/* Zpix 字体在 12 24 48 96 像素时表现为最清晰 */
+* {
+	-fx-font-family: 'Zpix';
+	-fx-font-smoothing-type: gray;
+}
+
+.root {
+	-bfx-bg-color: #D6ECF0;
+	-bfx-text-color: #333;
+	-bfx-second-color: #177CB0;
+
+	-fx-accent: -bfx-second-color;
+	-fx-focus-color: -bfx-second-color;
+	-fx-focused-base: transparent;
+	-fx-text-box-border: #CCC;
+	-fx-faint-focus-color: transparent;
+    -fx-shadow-highlight-color: transparent;
+    -fx-cell-focus-inner-border: transparent;
+    -fx-control-inner-background: #FFF;
+}
+
+.button:focused,
+.combo-box:focused,
+.text-area:focused,
+.text-field:focused {
+	-fx-background-insets: 0, 1, 2;
+}
+.list-view:focused {
+	-fx-background-insets: 0, 0, 2;
+}
+/* --------------------------- 控件 --------------------------- */
+/* 按钮 */
+.button {
+	-fx-background-radius: 0;
+}
+/* 列表 */
+.list-view:focused .cell:selected {
+	-fx-text-fill: -bfx-text-color;
+	-fx-background-color: -bfx-bg-color;
+}
+.list-view:focused .cell:selected * {
+	-fx-text-fill: -bfx-text-color;
+}
+/* 下拉选择 */
+.combo-box {
+	-fx-border-color: -fx-text-box-border;
+	-fx-background-radius: 0;
+}
+.combo-box:focused {
+	-fx-border-color: -bfx-second-color;
+}
+.combo-box .text-input {
+	-fx-padding: 4;
+    -fx-background-color: #FFF;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.combo-box .arrow-button {
+	-fx-background-radius: 0;
+	-fx-background-insets: 0;
+}
+.combo-box .arrow-button {
+	-fx-padding: 0 6;
+	-fx-border-width: 0 0 0 1;
+	-fx-border-color: -fx-text-box-border;
+}
+.combo-box:focused .arrow-button {
+	-fx-border-color: -bfx-second-color;
+}
+.combo-box .arrow-button .arrow {
+	-fx-shape: "M301.5,393.5v1h1v1h1v1h1v1h1v1h1v-1h1v-1h1v-1h1v-1h1v-1Z";
+	-fx-min-width: 9;
+	-fx-min-height: 5;
+	-fx-pref-width: 9;
+	-fx-pref-height: 5;
+}
+.combo-box-popup {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+.combo-box-popup .list-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, .4), 4, 0, 0, 1);
+    -fx-padding: 0;
+    -fx-translate-y: -1;
+    -fx-background-color: #FFF;
+    -fx-background-insets: 1;
+}
+.combo-box-popup .list-cell {
+	-fx-text-fill: -bfx-text-color;
+	-fx-translate-y: 1;
+    -fx-border-color: transparent;
+}
+.combo-box-popup .list-cell:filled:hover {
+    -fx-text-fill: -fx-text-inner-color;
+    -fx-background-color: -bfx-bg-color;
+}
+/* 文本框 */
+.text-field {
+	-fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-radius: 0;
+}
+.text-field:focused {
+	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
+}
+/* 文本域 */
+.text-area {
+	-fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+	-fx-background-radius: 0;
+}
+.text-area:focused {
+	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
+}
+.text-area .content {
+    -fx-background-color: -fx-control-inner-background;
+}
+/* 滚动条 */
+.scroll-bar {
+	-fx-padding: 0;
+}
+.scroll-bar .decrement-button,
+.scroll-bar .increment-button {
+	visibility: hidden;
+	-fx-min-width: 0;
+	-fx-min-height: 0;
+	-fx-pref-width: 0;
+	-fx-pref-height: 0;
+}
+.scroll-bar .decrement-arrow,
+.scroll-bar .increment-arrow {
+	visibility: hidden;
+	-fx-min-width: 0;
+	-fx-min-height: 0;
+	-fx-pref-width: 0;
+	-fx-pref-height: 0;
+}
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+	-fx-padding: 0;
+	-fx-background-color: transparent;
+}
+.scroll-bar:vertical {
+	-fx-pref-width: 7;
+}
+.scroll-bar:horizontal {
+	-fx-pref-height: 7;
+}
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+	-fx-background-color: -bfx-second-color;
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
+}
+/* --------------------------- 布局 --------------------------- */
+/* 滚动 */
+.scroll-pane {
+	-fx-background-insets: 0;
+}
+.scroll-pane .corner {
+	-fx-background-color: transparent;
+}
+/* 分割 */
+.split-pane {
+	-fx-padding: 0;
+	-fx-background-color: transparent;
+}
