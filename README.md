@@ -1,9 +1,10 @@
-# BetterFX
+<center>
 
-来源
-> [YeyuUtils](https://github.com/imyeyu/YeyuUtils) > [iTools](https://github.com/imyeyu/iTools) > [PixelFX](https://github.com/imyeyu/PixelFX) > BetterFX
+![](https://github.com/imyeyu/BetterFX/blob/main/src/main/resources/logo.png)
 
-以上 YeyuUtils 和 iTools 都废弃了
+</center>
+
+![](https://github.com/imyeyu/ImageBed/blob/master/BetterFX/0.png)
 
 ---------
 
@@ -23,7 +24,7 @@ AnchorPane.setBottomAnchor(node, 10d);
 现在可以这样用
 
 ```java
-AnchorPaneX.def(node, 10, 10, 10, 10);
+XAnchorPane.def(node, 10, 10, 10, 10);
 ```
 
 #### 2. 背景填充 BgFill
@@ -74,16 +75,19 @@ new Border(new BorderStroke(
 ```
 现在可以这么做
 ```java
-new BorderX("red").build();
+new XBorder("red").build();
 // 不同宽度
-new BorderX("red").width(1, 2, 3, 4).build();
+new XBorder("red").width(1, 2, 3, 4).build();
 // 圆角
-new BorderX("red").radius(.5, true).build();
+new XBorder("red").radius(.5, true).build();
 // 单边边框
-new BorderX("red").top().build();
+new XBorder("red").top().build();
 ```
 #### 5. 空的选择器 NoSelectionModel
-可以关闭 TableView、ListView、TreeView 等组件的选择功能
+可以关闭 ListView 等组件的选择功能
+
+#### 6. XTreeView
+使用方法和 TreeView 相同，但 XTreeView 允许有多个根节点
 
 ## FX 多任务
 
@@ -98,6 +102,10 @@ new RunAsync<String> {
 	public void onFinish(String t) {
 		// 参数是 call() 执行的返回结果，这里是 FX 线程，可以操作 UI
 	}
+
+	public void onException(Throwable e) {
+		// 线程异常。这里是 FX 线程
+	}
 }.start();
 ```
 
@@ -108,3 +116,11 @@ RunLater.time(1000).event(() -> {
 	// 延时 1 秒后执行（属于 FX 线程）
 })
 ```
+
+.
+
+.
+
+.
+
+更多功能演示请查看测试程序
