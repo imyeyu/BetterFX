@@ -1,9 +1,3 @@
-<center>
-
-![](https://github.com/imyeyu/BetterFX/blob/main/src/main/resources/logo.png)
-
-</center>
-
 ![](https://github.com/imyeyu/ImageBed/blob/master/BetterFX/0.png)
 
 ---------
