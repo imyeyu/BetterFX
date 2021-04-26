@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.extend.BgFill;
-import net.imyeyu.betterfx.extend.BorderX;
+import net.imyeyu.betterfx.extend.XBorder;
 
 /**
  * 分组面板
@@ -31,7 +31,7 @@ public class GroupPane extends StackPane {
 		this.title.setPadding(new Insets(0, 6, 0, 6));
 		this.title.setBackground(bg);
 
-		setBorder(new BorderX(BetterFX.LIGHT_GRAY).build());
+		setBorder(new XBorder(BetterFX.LIGHT_GRAY).build());
 		setPadding(new Insets(8));
 		setAlignment(Pos.TOP_LEFT);
 		setBackground(bg);

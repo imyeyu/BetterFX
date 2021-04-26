@@ -14,6 +14,7 @@ import view.pages.PageByteSpeed;
 import view.pages.PageCSS;
 import view.pages.PageComboBox;
 import view.pages.PageGroup;
+import view.pages.PageGroupPane;
 import view.pages.PageList;
 import view.pages.PageNoSelectionModel;
 import view.pages.PagePopup;
@@ -69,14 +70,15 @@ public class Main extends ViewMain {
 		component.setExpanded(true);
 		{
 			final Page[] pages = new Page[] {
-					new Page("按钮", new PageButton()),
-					new Page("组件组", new PageGroup()),
-					new Page("输入", new PageTextInput()),
-					new Page("下拉选择", new PageComboBox()),
-					new Page("列表", new PageList()),
-					new Page("表格", new PageTable()),
-					new Page("进度条", new PageProgressBar()),
-					new Page("弹窗会话", new PageAlert()),
+				new Page("组布局", new PageGroupPane()),
+				new Page("按钮", new PageButton()),
+				new Page("组件组", new PageGroup()),
+				new Page("输入", new PageTextInput()),
+				new Page("下拉选择", new PageComboBox()),
+				new Page("列表", new PageList()),
+				new Page("表格", new PageTable()),
+				new Page("进度条", new PageProgressBar()),
+				new Page("弹窗会话", new PageAlert()),
 			};
 			for (int i = 0; i < pages.length; i++) {
 				component.getChildren().add(new TreeItem<>(pages[i]));

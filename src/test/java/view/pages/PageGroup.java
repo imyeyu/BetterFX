@@ -83,8 +83,10 @@ public class PageGroup extends ScrollPane {
 		code.getStyleClass().add("code");
 		code.setEditable(false);
 
-		setPadding(new Insets(0, 20, 0, 20));
-		setContent(new VBox(6, labelBP, bpg, bpg1, bpg2, bpg3, labelHBox, new HBox(hboxg), code));
+		VBox root = new VBox(6, labelBP, bpg, bpg1, bpg2, bpg3, labelHBox, new HBox(hboxg), code);
+		root.setPadding(new Insets(10));
+
+		setContent(root);
 		setFitToWidth(true);
 	}
 }
