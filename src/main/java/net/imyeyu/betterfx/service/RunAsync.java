@@ -16,6 +16,10 @@ import javafx.concurrent.Task;
  *     public void onFinish(String t) {
  *         // 参数是 call() 执行的返回结果，这里是 FX 线程，可以操作 UI
  *     }
+ *
+ *     public void onException(Throwable e) {
+ *         // 线程异常。这里是 FX 线程
+ *     }
  * }.start();
  * </pre>
  * 
@@ -27,6 +31,7 @@ public abstract class RunAsync<T> extends Service<T> {
 	
 	public RunAsync() {
 		valueProperty().addListener((obs, o, t) -> onFinish(t));
+		exceptionProperty().addListener((obs, o, e) -> onException(e));
 	}
 	
 	protected Task<T> createTask() {
@@ -52,5 +57,14 @@ public abstract class RunAsync<T> extends Service<T> {
 	 */
 	public void onFinish(T t) {
 		// 子类实现
+	}
+
+	/**
+	 * 发生异常（FX 线程）
+	 *
+	 * @param e 异常
+	 */
+	public void onException(Throwable e) {
+		e.printStackTrace();
 	}
 }
