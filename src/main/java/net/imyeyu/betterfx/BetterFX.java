@@ -4,7 +4,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.Border;
 import javafx.scene.paint.Paint;
 import net.imyeyu.betterfx.extend.BgFill;
-import net.imyeyu.betterfx.extend.BorderX;
+import net.imyeyu.betterfx.extend.XBorder;
 
 /**
  * 更好的 FX，由 PixelFX 脱离
@@ -45,31 +45,29 @@ public class BetterFX {
 	/** 透明 */
 	public static final Paint TRANSPARENT = Paint.valueOf("#FFFFFF00");
 
-	// 边框
-	public static final Border BORDER_DEFAULT = new BorderX(LIGHT_GRAY).build();
-	public static final Border BORDER_FOCUSED = new BorderX("#177CB0").build();
-
-	// 单四边
-	public static final Border BORDER_TOP = new BorderX(LIGHT_GRAY).top().build();
-	public static final Border BORDER_LEFT = new BorderX(LIGHT_GRAY).left().build();
-	public static final Border BORDER_RIGHT = new BorderX(LIGHT_GRAY).right().build();
-	public static final Border BORDER_BOTTOM = new BorderX(LIGHT_GRAY).bottom().build();
-
-	// 除了某边
-	public static final Border BORDER_EXTOP = new BorderX(LIGHT_GRAY).exTop().build();
-	public static final Border BORDER_EXLEFT = new BorderX(LIGHT_GRAY).exLeft().build();
-	public static final Border BORDER_EXRIGHT = new BorderX(LIGHT_GRAY).exRight().build();
-	public static final Border BORDER_EXBOTTOM = new BorderX(LIGHT_GRAY).exBottom().build();
-
-	// 垂直和水平边（边的方向而非位置）
-	public static final Border BORDER_H = new BorderX(LIGHT_GRAY).width(1, 0).build();
-	public static final Border BORDER_V = new BorderX(LIGHT_GRAY).width(0, 1).build();
-
-	// 背景颜色
-	public static final Background BG_DEFAULT = new BgFill(WHITE).build();
-	public static final Background BG_WHITE = new BgFill(WHITE).build();
-	public static final Background BG_TP = new BgFill(TRANSPARENT).build();
-
 	/** 聚焦颜色（靛青） */
 	public static final Paint FOCUSED_COLOR = Paint.valueOf("#177CB0");
+
+	// 边框
+	public static final Border BORDER_DEFAULT = new XBorder(LIGHT_GRAY).build();
+	public static final Border BORDER_FOCUSED = new XBorder(FOCUSED_COLOR).build();
+
+	// 单四边
+	public static final Border BORDER_TOP = new XBorder(LIGHT_GRAY).top().build();
+	public static final Border BORDER_LEFT = new XBorder(LIGHT_GRAY).left().build();
+	public static final Border BORDER_RIGHT = new XBorder(LIGHT_GRAY).right().build();
+	public static final Border BORDER_BOTTOM = new XBorder(LIGHT_GRAY).bottom().build();
+	// 除了某边
+	public static final Border BORDER_EXTOP = new XBorder(LIGHT_GRAY).exTop().build();
+	public static final Border BORDER_EXLEFT = new XBorder(LIGHT_GRAY).exLeft().build();
+	public static final Border BORDER_EXRIGHT = new XBorder(LIGHT_GRAY).exRight().build();
+	public static final Border BORDER_EXBOTTOM = new XBorder(LIGHT_GRAY).exBottom().build();
+	// 垂直和水平边（边的方向而非位置）
+	public static final Border BORDER_H = new XBorder(LIGHT_GRAY).width(1, 0).build();
+	public static final Border BORDER_V = new XBorder(LIGHT_GRAY).width(0, 1).build();
+
+	// 背景颜色
+	public static final Background BG_DEFAULT = new BgFill(GRAY_WHITE).build();
+	public static final Background BG_WHITE = new BgFill(WHITE).build();
+	public static final Background BG_TP = new BgFill(TRANSPARENT).build();
 }
