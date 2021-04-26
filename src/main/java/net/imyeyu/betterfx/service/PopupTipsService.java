@@ -53,11 +53,10 @@ public class PopupTipsService extends Popup {
 	/**
 	 * 显示弹窗提示
 	 *
-	 * @param node      安装提示的组件
-	 * @param popupTips 弹窗数据
+	 * @param node 安装提示的组件
 	 */
-	public void show(Node node, PopupTips popupTips) {
-		root.getChildren().setAll(popupTips.getNode());
+	public void show(Node node) {
+		root.getChildren().setAll(popups.get(node).getNode());
 		show(node.getScene().getWindow());
 	}
 
@@ -74,9 +73,9 @@ public class PopupTipsService extends Popup {
 	}
 
 	/**
-	 * 为组件安装弹窗提示。
-	 * 如果要为 node 设置 setOnMouseMoved 事件，务必让该事件执行 PopupTipsService.getInstance().move(event)
-	 * 这样才能保持弹窗提示跟随鼠标
+	 * <p>为组件安装弹窗提示。</p>
+	 * <p>如果要为 node 设置 setOnMouseMoved 事件，务必让该事件执行 PopupTipsService.getInstance().move(event)</p>
+	 * <p>这样才能保持弹窗提示跟随鼠标</p>
 	 *
 	 * @param node      组件
 	 * @param popupTips 弹窗数据
@@ -89,7 +88,7 @@ public class PopupTipsService extends Popup {
 		popupTips.setHoverListener((obs, o, isHovered) -> {
 			if (isHovered) {
 				// 显示
-				service.show(node, popupTips);
+				service.show(node);
 				if (popupTips.getOnShow() != null) {
 					popupTips.getOnShow().handler();
 				}

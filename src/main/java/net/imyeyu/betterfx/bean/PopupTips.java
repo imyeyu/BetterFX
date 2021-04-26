@@ -7,8 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.Objects;
-
 /**
  * 弹窗提示，由 PopupTipsService 安装
  *
@@ -39,25 +37,6 @@ public class PopupTips {
 
 	public PopupTips(Node node) {
 		this.node = node;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		PopupTips popupTips = (PopupTips) o;
-		return Objects.equals(node, popupTips.node) && Objects.equals(onShow,
-		                                                              popupTips.onShow
-		) && Objects.equals(onHide, popupTips.onHide) && Objects.equals(hoverListener, popupTips.hoverListener);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(node, onShow, onHide, hoverListener);
 	}
 
 	public Node getNode() {
