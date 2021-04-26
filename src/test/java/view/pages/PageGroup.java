@@ -2,15 +2,21 @@ package view.pages;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import net.imyeyu.betterfx.component.BorderPaneGroup;
 import net.imyeyu.betterfx.component.HBoxGroup;
+import net.imyeyu.betterfx.util.Zpix;
 
 public class PageGroup extends ScrollPane {
 
 	public PageGroup() {
+		Label labelBP = new Label("BorderPaneGroup 组件组：");
+		labelBP.setFont(Zpix.getM());
 		TextField t0 = new TextField();
 		Button btn0 = new Button("左按钮");
 		BorderPaneGroup bpg = new BorderPaneGroup();
@@ -43,8 +49,42 @@ public class PageGroup extends ScrollPane {
 		bpg3.setCenter(t3);
 		bpg3.setRight(hg1);
 
-		setPadding(new Insets(14, 20, 0, 20));
-		setContent(new VBox(6, bpg, bpg1, bpg2, bpg3));
+		Label labelHBox = new Label("HBoxGroup 组件组：");
+		labelHBox.setFont(Zpix.getM());
+		Button btn8 = new Button("按钮在组件组");
+		Button btn9 = new Button("ControlGroup");
+		Button btn10 = new Button("横向");
+		Button btn11 = new Button("+2");
+		HBoxGroup hboxg = new HBoxGroup(btn8, btn9, btn10, btn11);
+
+
+		TextArea code = new TextArea("""
+			// BorderPaneGroup 组件组
+			TextField t3 = new TextField();
+			Button btn4 = new Button("左按钮1");
+			Button btn5 = new Button("左按钮2");
+			HBoxGroup hg0 = new HBoxGroup(btn4, btn5);
+			Button btn6 = new Button("右按钮1");
+			Button btn7 = new Button("右按钮2");
+			HBoxGroup hg1 = new HBoxGroup(btn6, btn7);
+			BorderPaneGroup bpg3 = new BorderPaneGroup();
+			bpg3.setLeft(hg0);
+			bpg3.setCenter(t3);
+			bpg3.setRight(hg1);
+			
+			// HBoxGroup 组件组
+			Button btn8 = new Button("按钮在组件组");
+			Button btn9 = new Button("ControlGroup");
+			Button btn10 = new Button("横向");
+			Button btn11 = new Button("+2");
+			HBoxGroup hboxg = new HBoxGroup(btn8, btn9, btn10, btn11);
+            """);
+		code.setPrefHeight(420);
+		code.getStyleClass().add("code");
+		code.setEditable(false);
+
+		setPadding(new Insets(0, 20, 0, 20));
+		setContent(new VBox(6, labelBP, bpg, bpg1, bpg2, bpg3, labelHBox, new HBox(hboxg), code));
 		setFitToWidth(true);
 	}
 }

@@ -2,8 +2,10 @@ package view.pages;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 
 public class PageComboBox extends ScrollPane {
 
@@ -22,6 +24,6 @@ public class PageComboBox extends ScrollPane {
 		btns.setHgap(8);
 
 		setPadding(new Insets(14, 0, 0, 20));
-		setContent(btns);
+		setContent(new VBox(12, btns, new Label("组件没有做修改，只是 CSS 样式调整")));
 	}
 }
