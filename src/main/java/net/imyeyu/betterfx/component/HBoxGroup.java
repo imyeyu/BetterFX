@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.extend.BgFill;
-import net.imyeyu.betterfx.extend.BorderX;
+import net.imyeyu.betterfx.extend.XBorder;
 
 /**
  * 按钮组
@@ -17,7 +17,7 @@ import net.imyeyu.betterfx.extend.BorderX;
  */
 public class HBoxGroup extends AnchorPane {
 
-	private static final Border BORDER = new BorderX(BetterFX.LIGHT_GRAY).right().build();
+	private static final Border BORDER = new XBorder(BetterFX.LIGHT_GRAY).right().build();
 
 	public HBoxGroup(Control... controls) {
 		HBox root = new HBox();
@@ -47,6 +47,7 @@ public class HBoxGroup extends AnchorPane {
 		root.getChildren().add(line);
 		root.setFillHeight(false);
 		getChildren().add(root);
+		setBackground(BgFill.test());
 		setRightAnchor(root, (double) -controls.length); // 溢出偏移部分
 	}
 }

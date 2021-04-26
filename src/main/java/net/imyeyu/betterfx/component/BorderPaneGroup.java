@@ -8,7 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.extend.BgFill;
-import net.imyeyu.betterfx.extend.BorderX;
+import net.imyeyu.betterfx.extend.XBorder;
 
 /**
  * 按钮组
@@ -17,7 +17,7 @@ import net.imyeyu.betterfx.extend.BorderX;
  */
 public class BorderPaneGroup extends AnchorPane {
 
-	private static final Border BORDER = new BorderX(BetterFX.LIGHT_GRAY).right().build();
+	private static final Border BORDER = new XBorder(BetterFX.LIGHT_GRAY).right().build();
 
 	private final Region line; // 补偿线
 	private final BorderPane root;
