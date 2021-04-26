@@ -1,4 +1,4 @@
-package net.imyeyu.betterfx.extend;
+package net.imyeyu.betterfx.component;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;

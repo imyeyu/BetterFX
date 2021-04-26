@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import net.imyeyu.betterfx.BetterFX;
-import net.imyeyu.betterfx.extend.XTreeView;
+import net.imyeyu.betterfx.component.XTreeView;
 import net.imyeyu.bfxtest.bean.Page;
 
 /**
