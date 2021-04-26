@@ -1,11 +1,11 @@
 /*
-    - BetterFX 的样式表 -
+	- BetterFX 的样式表 -
 
-    1. 主体颜色为灰色，辅助色为靛青 #177CB0
+	1. 主体颜色为灰色，辅助色为靛青 #177CB0
 
 */
 @font-face {
-    src: url('./zpix.ttf');
+	src: url('./zpix.ttf');
 }
 
 /* Zpix 字体在 12 24 48 96 像素时表现为最清晰 */
@@ -15,18 +15,17 @@
 }
 
 .root {
-	-bfx-bg-color: #D6ECF0;
-	-bfx-text-color: #333;
 	-bfx-second-color: #177CB0;
+	-bfx-border-color: #CCC;
 
 	-fx-accent: -bfx-second-color;
 	-fx-focus-color: -bfx-second-color;
 	-fx-focused-base: transparent;
-	-fx-text-box-border: #CCC;
+	-fx-text-box-border: -bfx-border-color;
 	-fx-faint-focus-color: transparent;
-    -fx-shadow-highlight-color: transparent;
-    -fx-cell-focus-inner-border: transparent;
-    -fx-control-inner-background: #FFF;
+	-fx-shadow-highlight-color: transparent;
+	-fx-cell-focus-inner-border: transparent;
+	-fx-control-inner-background: #FFF;
 }
 
 .button:focused,
@@ -38,18 +37,28 @@
 .list-view:focused {
 	-fx-background-insets: 0, 0, 2;
 }
+.table-view:focused {
+	-fx-background-insets: 0, 0, 1;
+}
 /* --------------------------- 控件 --------------------------- */
 /* 按钮 */
 .button {
 	-fx-background-radius: 0;
 }
-/* 列表 */
-.list-view:focused .cell:selected {
-	-fx-text-fill: -bfx-text-color;
-	-fx-background-color: -bfx-bg-color;
+/* 树形结构 */
+.tree-view .tree-cell {
+	 -fx-indent: 1em;
 }
-.list-view:focused .cell:selected * {
-	-fx-text-fill: -bfx-text-color;
+.tree-view .tree-disclosure-node {
+	-fx-padding: .166667em .5em 0 .5em;
+}
+.tree-view .tree-cell .arrow,
+.tree-view .tree-cell:expanded .arrow {
+	-fx-shape: "M303.5,391.5h1v1h1v1h1v1h1v1h1v1h-1v1h-1v1h-1v1h-1v1h-1Z";
+	-fx-min-width: 5;
+	-fx-min-height: 9;
+	-fx-pref-width: 5;
+	-fx-pref-height: 9;
 }
 /* 下拉选择 */
 .combo-box {
@@ -61,9 +70,9 @@
 }
 .combo-box .text-input {
 	-fx-padding: 4;
-    -fx-background-color: #FFF;
-    -fx-background-insets: 0;
-    -fx-background-radius: 0;
+	-fx-background-color: #FFF;
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
 }
 .combo-box .arrow-button {
 	-fx-background-radius: 0;
@@ -85,29 +94,24 @@
 	-fx-pref-height: 5;
 }
 .combo-box-popup {
-    -fx-padding: 0;
-    -fx-background-insets: 0;
+	-fx-padding: 0;
+	-fx-background-insets: 0;
 }
 .combo-box-popup .list-view {
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, .4), 4, 0, 0, 1);
-    -fx-padding: 0;
-    -fx-translate-y: -1;
-    -fx-background-color: #FFF;
-    -fx-background-insets: 1;
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, .4), 4, 0, 0, 1);
+	-fx-padding: 0;
+	-fx-translate-y: -1;
+	-fx-background-color: #FFF;
+	-fx-background-insets: 1;
 }
 .combo-box-popup .list-cell {
-	-fx-text-fill: -bfx-text-color;
 	-fx-translate-y: 1;
-    -fx-border-color: transparent;
-}
-.combo-box-popup .list-cell:filled:hover {
-    -fx-text-fill: -fx-text-inner-color;
-    -fx-background-color: -bfx-bg-color;
+	-fx-border-color: transparent;
 }
 /* 文本框 */
 .text-field {
 	-fx-background-color: -fx-text-box-border, -fx-control-inner-background;
-    -fx-background-radius: 0;
+	-fx-background-radius: 0;
 }
 .text-field:focused {
 	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
@@ -121,7 +125,11 @@
 	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
 }
 .text-area .content {
-    -fx-background-color: -fx-control-inner-background;
+	-fx-background-color: -fx-control-inner-background;
+}
+.text-area.code {
+	-fx-font-size: 13;
+	-fx-font-family: "Consolas";
 }
 /* 滚动条 */
 .scroll-bar {
@@ -160,6 +168,38 @@
 	-fx-background-insets: 0;
 	-fx-background-radius: 0;
 }
+/* 列表滚动条 */
+.tree-view .scroll-bar:vertical,
+.list-view .scroll-bar:vertical,
+.table-view .scroll-bar:vertical {
+	-fx-border-width: 0 0 0 1;
+	-fx-border-color: -bfx-border-color;
+}
+
+.tree-view .scroll-bar:horizontal,
+.list-view .scroll-bar:horizontal,
+.table-view .scroll-bar:horizontal {
+	-fx-border-width: 1 0 0 0;
+	-fx-border-color: -bfx-border-color;
+}
+/* 进度条 */
+.progress-bar {
+	-fx-indeterminate-bar-flip: true;
+	-fx-indeterminate-bar-length: 60;
+	-fx-indeterminate-bar-escape: true;
+	-fx-indeterminate-bar-animation-time: 2;
+}
+.progress-bar .track {
+	-fx-background-radius: 0;
+}
+.progress-bar .bar {
+	-fx-background-insets: 2 2 3 2;
+	-fx-background-color: -bfx-second-color;
+	-fx-background-radius: 0;
+}
+.progress-bar:indeterminate .bar {
+	-fx-background-color: linear-gradient(to left, transparent, -bfx-second-color);
+}
 /* --------------------------- 布局 --------------------------- */
 /* 滚动 */
 .scroll-pane {
@@ -172,4 +212,5 @@
 .split-pane {
 	-fx-padding: 0;
 	-fx-background-color: transparent;
+	-fx-background-insets: 0;
 }
