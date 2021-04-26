@@ -3,7 +3,7 @@ package net.imyeyu.betterfx.extend;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 
-public class AnchorPaneX extends AnchorPane {
+public class XAnchorPane extends AnchorPane {
 	
 	/**
 	 * 设置 AnchorPane 四边间距，传值 null 为不设定

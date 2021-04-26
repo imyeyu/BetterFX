@@ -14,16 +14,16 @@ import java.util.Random;
  * JavaFX 图形界面边框封装。build() 作为导出作用，最后执行
  * <br>示例
  * <pre>
- * new BorderX("red").build();                  // 红色边框，默认样式（1 像素宽度直线，无圆角无内边距）
- * new BorderX("red").width(0, 1, 0, 1).build() // 红色直线左右边框
- * new BorderX("red").top().build()             // 红色直线上边框
- * new BorderX("red").radius(.5, true).build()  // 红色完全圆角边框
+ * new XBorder("red").build();                  // 红色边框，默认样式（1 像素宽度直线，无圆角无内边距）
+ * new XBorder("red").width(0, 1, 0, 1).build() // 红色直线左右边框
+ * new XBorder("red").top().build()             // 红色直线上边框
+ * new XBorder("red").radius(.5, true).build()  // 红色完全圆角边框
  * </pre>
  * top(), right(), bottom(), left() 不可重复使用，因为这是针对性边框宽度设置，重复使用只有最后一个有效
  *
  * 夜雨 创建于 2021/2/14 10:42
  */
-public class BorderX {
+public class XBorder {
 
 	public static final Border EMPTY = Border.EMPTY;
 	public static final BorderStrokeStyle NONE = BorderStrokeStyle.NONE;
@@ -54,7 +54,7 @@ public class BorderX {
 	 * @param bottom 下
 	 * @param left   左
 	 */
-	public BorderX(Paint top, Paint right, Paint bottom, Paint left) {
+	public XBorder(Paint top, Paint right, Paint bottom, Paint left) {
 		cT = top;
 		cR = right;
 		cB = bottom;
@@ -66,15 +66,15 @@ public class BorderX {
 		bssT = bssR = bssB = bssL = SOLID;
 	}
 
-	public BorderX(Paint color) {
+	public XBorder(Paint color) {
 		this(color, color, color, color);
 	}
 
-	public BorderX(String top, String right, String bottom, String left) {
+	public XBorder(String top, String right, String bottom, String left) {
 		this(Paint.valueOf(top), Paint.valueOf(right), Paint.valueOf(bottom), Paint.valueOf(left));
 	}
 
-	public BorderX(String color) {
+	public XBorder(String color) {
 		this(color, color, color, color);
 	}
 
@@ -88,7 +88,7 @@ public class BorderX {
 	 *
 	 * @return 边框构造器
 	 */
-	public BorderX width(double top, double right, double bottom, double left) {
+	public XBorder width(double top, double right, double bottom, double left) {
 		wT = top;
 		wR = right;
 		wB = bottom;
@@ -96,110 +96,110 @@ public class BorderX {
 		return this;
 	}
 
-	public BorderX width(double topBottom, double leftRight) {
+	public XBorder width(double topBottom, double leftRight) {
 		wT = wB = topBottom;
 		wR = wL = leftRight;
 		return this;
 	}
 
-	public BorderX width(double all) {
+	public XBorder width(double all) {
 		wT = wB = wR = wL = all;
 		return this;
 	}
 
 	// 指定边框
-	public BorderX top() {
+	public XBorder top() {
 		wT = 1;
 		wR = wB = wL = 0;
 		return this;
 	}
 
-	public BorderX right() {
+	public XBorder right() {
 		wR = 1;
 		wT = wB = wL = 0;
 		return this;
 	}
 
-	public BorderX bottom() {
+	public XBorder bottom() {
 		wB = 1;
 		wT = wR = wL = 0;
 		return this;
 	}
 
-	public BorderX left() {
+	public XBorder left() {
 		wL = 1;
 		wT = wR = wB = 0;
 		return this;
 	}
 
-	public BorderX top(double width) {
+	public XBorder top(double width) {
 		wT = width;
 		wR = wB = wL = 0;
 		return this;
 	}
 
-	public BorderX right(double width) {
+	public XBorder right(double width) {
 		wR = width;
 		wT = wB = wL = 0;
 		return this;
 	}
 
-	public BorderX bottom(double width) {
+	public XBorder bottom(double width) {
 		wB = width;
 		wT = wR = wL = 0;
 		return this;
 	}
 
-	public BorderX left(double width) {
+	public XBorder left(double width) {
 		wL = width;
 		wT = wR = wB = 0;
 		return this;
 	}
 
 	// 除了指定边框
-	public BorderX exTop() {
+	public XBorder exTop() {
 		wT = 0;
 		wR = wB = wL = 1;
 		return this;
 	}
 
-	public BorderX exRight() {
+	public XBorder exRight() {
 		wR = 0;
 		wT = wB = wL = 1;
 		return this;
 	}
 
-	public BorderX exBottom() {
+	public XBorder exBottom() {
 		wB = 0;
 		wT = wR = wL = 1;
 		return this;
 	}
 
-	public BorderX exLeft() {
+	public XBorder exLeft() {
 		wL = 0;
 		wT = wR = wB = 1;
 		return this;
 	}
 
-	public BorderX exTop(double width) {
+	public XBorder exTop(double width) {
 		wT = 0;
 		wR = wB = wL = width;
 		return this;
 	}
 
-	public BorderX exRight(double width) {
+	public XBorder exRight(double width) {
 		wR = 0;
 		wT = wB = wL = width;
 		return this;
 	}
 
-	public BorderX exBottom(double width) {
+	public XBorder exBottom(double width) {
 		wB = 0;
 		wT = wR = wL = width;
 		return this;
 	}
 
-	public BorderX exLeft(double width) {
+	public XBorder exLeft(double width) {
 		wL = 0;
 		wT = wR = wB = width;
 		return this;
@@ -216,7 +216,7 @@ public class BorderX {
 	 *
 	 * @return 边框构造器
 	 */
-	public BorderX radius(double topLeft, double topRight, double bottomRight, double bottomLeft, boolean asPercent) {
+	public XBorder radius(double topLeft, double topRight, double bottomRight, double bottomLeft, boolean asPercent) {
 		crTL = topLeft;
 		crTR = topRight;
 		crBR = bottomRight;
@@ -225,13 +225,13 @@ public class BorderX {
 		return this;
 	}
 
-	public BorderX radius(double all, boolean asPercent) {
+	public XBorder radius(double all, boolean asPercent) {
 		crTL = crTR = crBR = crBL = all;
 		crPercent = asPercent;
 		return this;
 	}
 
-	public BorderX radius(double all) {
+	public XBorder radius(double all) {
 		crTL = crTR = crBR = crBL = all;
 		return this;
 	}
@@ -246,7 +246,7 @@ public class BorderX {
 	 *
 	 * @return 边框构造器
 	 */
-	public BorderX style(BorderStrokeStyle top, BorderStrokeStyle right, BorderStrokeStyle bottom, BorderStrokeStyle left) {
+	public XBorder style(BorderStrokeStyle top, BorderStrokeStyle right, BorderStrokeStyle bottom, BorderStrokeStyle left) {
 		bssT = top;
 		bssR = right;
 		bssB = bottom;
@@ -254,17 +254,17 @@ public class BorderX {
 		return this;
 	}
 
-	public BorderX style(BorderStrokeStyle all) {
+	public XBorder style(BorderStrokeStyle all) {
 		bssT = bssR = bssB = bssL = all;
 		return this;
 	}
 
-	public BorderX dashed() {
+	public XBorder dashed() {
 		bssT = bssR = bssB = bssL = DASHED;
 		return this;
 	}
 
-	public BorderX dotted() {
+	public XBorder dotted() {
 		bssT = bssR = bssB = bssL = DOTTED;
 		return this;
 	}
@@ -279,7 +279,7 @@ public class BorderX {
 	 *
 	 * @return 边框构造器
 	 */
-	public BorderX padding(double top, double right, double bottom, double left) {
+	public XBorder padding(double top, double right, double bottom, double left) {
 		pT = top;
 		pR = right;
 		pB = bottom;
@@ -287,13 +287,13 @@ public class BorderX {
 		return this;
 	}
 
-	public BorderX padding(double topBottom, double leftRight) {
+	public XBorder padding(double topBottom, double leftRight) {
 		pT = pB = topBottom;
 		pL = pR = leftRight;
 		return this;
 	}
 
-	public BorderX padding(double all) {
+	public XBorder padding(double all) {
 		pT = pB = pL = pR = all;
 		return this;
 	}
@@ -321,7 +321,7 @@ public class BorderX {
 	 * @return 边框
 	 */
 	public static final Border test(String color) {
-		return new BorderX(color).build();
+		return new XBorder(color).build();
 	}
 
 	/**
