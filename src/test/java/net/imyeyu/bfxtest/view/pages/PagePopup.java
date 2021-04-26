@@ -1,4 +1,4 @@
-package view.pages;
+package net.imyeyu.bfxtest.view.pages;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;

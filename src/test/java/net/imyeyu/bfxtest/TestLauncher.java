@@ -1,5 +1,7 @@
-import ctrl.Main;
+package net.imyeyu.bfxtest;
+
 import javafx.application.Application;
+import net.imyeyu.bfxtest.ctrl.Main;
 
 /**
  * 启动器

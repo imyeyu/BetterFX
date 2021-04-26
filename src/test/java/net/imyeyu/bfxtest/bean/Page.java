@@ -1,4 +1,4 @@
-package bean;
+package net.imyeyu.bfxtest.bean;
 
 import javafx.scene.Node;
 

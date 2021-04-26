@@ -1,4 +1,4 @@
-package view.pages;
+package net.imyeyu.bfxtest.view.pages;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;

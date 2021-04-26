@@ -1,4 +1,4 @@
-package view.pages;
+package net.imyeyu.bfxtest.view.pages;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -78,7 +78,7 @@ public class PageGroup extends ScrollPane {
 			Button btn10 = new Button("横向");
 			Button btn11 = new Button("+2");
 			HBoxGroup hboxg = new HBoxGroup(btn8, btn9, btn10, btn11);
-            """);
+			""");
 		code.setPrefHeight(420);
 		code.getStyleClass().add("code");
 		code.setEditable(false);

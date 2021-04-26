@@ -1,6 +1,5 @@
-package view;
+package net.imyeyu.bfxtest.view;
 
-import bean.Page;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -12,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.extend.XTreeView;
+import net.imyeyu.bfxtest.bean.Page;
 
 /**
  * 主界面

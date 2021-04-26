@@ -1,30 +1,32 @@
-package ctrl;
+package net.imyeyu.bfxtest.ctrl;
 
-import bean.Page;
 import javafx.scene.control.TreeItem;
 import javafx.stage.Stage;
 import net.imyeyu.betterfx.component.dialog.Alert;
-import view.ViewMain;
-import view.pages.PageAlert;
-import view.pages.PageBetterFX;
-import view.pages.PageBgFill;
-import view.pages.PageBgImage;
-import view.pages.PageButton;
-import view.pages.PageByteSpeed;
-import view.pages.PageCSS;
-import view.pages.PageComboBox;
-import view.pages.PageGroup;
-import view.pages.PageGroupPane;
-import view.pages.PageList;
-import view.pages.PageNoSelectionModel;
-import view.pages.PagePopup;
-import view.pages.PageProgressBar;
-import view.pages.PageRunAsync;
-import view.pages.PageRunLater;
-import view.pages.PageTable;
-import view.pages.PageTextInput;
-import view.pages.PageXAnchorPane;
-import view.pages.PageXBorder;
+import net.imyeyu.bfxtest.bean.Page;
+import net.imyeyu.bfxtest.view.ViewMain;
+import net.imyeyu.bfxtest.view.pages.PageAlert;
+import net.imyeyu.bfxtest.view.pages.PageBetterFX;
+import net.imyeyu.bfxtest.view.pages.PageBgFill;
+import net.imyeyu.bfxtest.view.pages.PageBgImage;
+import net.imyeyu.bfxtest.view.pages.PageButton;
+import net.imyeyu.bfxtest.view.pages.PageByteSpeed;
+import net.imyeyu.bfxtest.view.pages.PageCSS;
+import net.imyeyu.bfxtest.view.pages.PageComboBox;
+import net.imyeyu.bfxtest.view.pages.PageGroup;
+import net.imyeyu.bfxtest.view.pages.PageGroupPane;
+import net.imyeyu.bfxtest.view.pages.PageList;
+import net.imyeyu.bfxtest.view.pages.PageNoSelectionModel;
+import net.imyeyu.bfxtest.view.pages.PagePopup;
+import net.imyeyu.bfxtest.view.pages.PageProgressBar;
+import net.imyeyu.bfxtest.view.pages.PageRunAsync;
+import net.imyeyu.bfxtest.view.pages.PageRunLater;
+import net.imyeyu.bfxtest.view.pages.PageTable;
+import net.imyeyu.bfxtest.view.pages.PageTextInput;
+import net.imyeyu.bfxtest.view.pages.PageXAnchorPane;
+import net.imyeyu.bfxtest.view.pages.PageXBorder;
+
+import java.awt.SplashScreen;
 
 /**
  * 主界面控制器
@@ -122,5 +124,9 @@ public class Main extends ViewMain {
 		});
 		root.getItems().add(nav.getRoot().getChildren().get(0).getValue().getNode());
 		root.setDividerPositions(.25, .75);
+
+		if (SplashScreen.getSplashScreen() != null) {
+			SplashScreen.getSplashScreen().close();
+		}
 	}
 }

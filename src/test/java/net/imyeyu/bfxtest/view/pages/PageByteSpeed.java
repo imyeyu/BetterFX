@@ -1,4 +1,4 @@
-package view.pages;
+package net.imyeyu.bfxtest.view.pages;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -22,22 +22,22 @@ public class PageByteSpeed extends ScrollPane {
 				});
 			}
 			public static String byteFormat(double size, int decimal) {
-			    String[] unit = new String[]{" B", " KB", " MB", " GB", " TB"};
-			    if (0.0D < size) {
-			        for (int i = 0; i < unit.length; size /= 1024.0D) {
-			            String format = String.format("%." + decimal + "f" + unit[i], size);
-			            if (size <= 1000.0D) {
-			                return format;
-			            }
-			            if (i == unit.length - 1) {
-			                return format;
-			            }
-			            ++i;
-			        }
-			    }
-			    return "N/A";
+				String[] unit = new String[]{" B", " KB", " MB", " GB", " TB"};
+				if (0.0D < size) {
+					for (int i = 0; i < unit.length; size /= 1024.0D) {
+						String format = String.format("%." + decimal + "f" + unit[i], size);
+						if (size <= 1000.0D) {
+							return format;
+						}
+						if (i == unit.length - 1) {
+							return format;
+						}
+						++i;
+					}
+				}
+				return "N/A";
 			}
-            """);
+			""");
 		code.setPrefHeight(420);
 		code.getStyleClass().add("code");
 		code.setEditable(false);

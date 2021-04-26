@@ -1,4 +1,4 @@
-package view.pages;
+package net.imyeyu.bfxtest.view.pages;
 
 import javafx.scene.control.TextArea;
 import net.imyeyu.betterfx.BetterFX;

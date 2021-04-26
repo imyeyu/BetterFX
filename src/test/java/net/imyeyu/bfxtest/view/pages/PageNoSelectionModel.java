@@ -1,4 +1,4 @@
-package view.pages;
+package net.imyeyu.bfxtest.view.pages;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -30,7 +30,7 @@ public class PageNoSelectionModel extends ScrollPane {
 		TextArea code = new TextArea("""
 			ListView<String> l1 = new ListView<>();
 			l1.setPrefSize(100, 200);
-			l1.setSelectionModel(new NoSelectionModel<>());		                             
+			l1.setSelectionModel(new NoSelectionModel<>());
 			""");
 		code.getStyleClass().add("code");
 		code.setEditable(false);

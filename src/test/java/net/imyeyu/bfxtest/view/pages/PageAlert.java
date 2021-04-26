@@ -1,4 +1,4 @@
-package view.pages;
+package net.imyeyu.bfxtest.view.pages;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -62,7 +62,7 @@ public class PageAlert extends ScrollPane {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setContentText("就算天空再深，看不出裂痕，眉头，仍骤满密云。");
 			alert.showAndWait();
-            """);
+			""");
 		code.getStyleClass().add("code");
 		code.setEditable(false);
 
