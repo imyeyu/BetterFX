@@ -46,10 +46,10 @@ public class Alert extends Dialog<ButtonType> {
 	public static final ButtonType NEXT     = new ButtonType("下一步", ButtonData.NEXT_FORWARD);
 	public static final ButtonType PREVIOUS = new ButtonType("上一步", ButtonData.BACK_PREVIOUS);
 	// 图标
-	private static final Image ICON_INFO    = new Image("dialog-information16x.png");
-	private static final Image ICON_WARNING = new Image("dialog-warning16x.png");
-	private static final Image ICON_ERROR   = new Image("dialog-error16x.png");
-	private static final Image ICON_CONFIRM = new Image("dialog-confirmation16x.png");
+	private static final Image ICON_INFO    = new Image("betterfx/dialog-information16x.png");
+	private static final Image ICON_WARNING = new Image("betterfx/dialog-warning16x.png");
+	private static final Image ICON_ERROR   = new Image("betterfx/dialog-error16x.png");
+	private static final Image ICON_CONFIRM = new Image("betterfx/dialog-confirmation16x.png");
 
 	private WeakReference<DialogPane> dialogPaneRef;
 

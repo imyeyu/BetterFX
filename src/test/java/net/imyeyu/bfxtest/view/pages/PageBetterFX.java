@@ -17,7 +17,7 @@ import java.util.Date;
 public class PageBetterFX extends ScrollPane {
 
 	public PageBetterFX() {
-		ImageView logo = new ImageView("/logo.png");
+		ImageView logo = new ImageView("/betterfx/logo.png");
 		Label version0 = new Label("BetterFX 版本: " + BetterFX.VERSION);
 		Label version1 = new Label("测试程序版本: 1.0.0");
 

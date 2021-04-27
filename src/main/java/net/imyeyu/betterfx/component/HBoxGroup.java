@@ -47,7 +47,6 @@ public class HBoxGroup extends AnchorPane {
 		root.getChildren().add(line);
 		root.setFillHeight(false);
 		getChildren().add(root);
-		setBackground(BgFill.test());
 		setRightAnchor(root, (double) -controls.length); // 溢出偏移部分
 	}
 }

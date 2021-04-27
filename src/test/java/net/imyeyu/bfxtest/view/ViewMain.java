@@ -49,7 +49,7 @@ public abstract class ViewMain extends Application {
 
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(BetterFX.CSS);
-		stage.getIcons().add(new Image("icon.png"));
+		stage.getIcons().add(new Image("betterfx/icon.png"));
 		stage.setTitle("BetterFX 测试程序");
 		stage.setScene(scene);
 		stage.setWidth(820);

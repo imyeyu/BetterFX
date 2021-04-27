@@ -29,7 +29,7 @@ public class PagePopup extends ScrollPane {
 		t2.setPrefHeight(50);
 		t2.setEditable(false);
 		t2.setPromptText("支持图片");
-		PopupTipsService.install(t2, new PopupTips(new Image("/logo.png")));
+		PopupTipsService.install(t2, new PopupTips(new Image("/betterfx/logo.png")));
 
 		TextArea t3 = new TextArea("""
 			StackPane pane = new StackPane(new Button("但你点不到我"));

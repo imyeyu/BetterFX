@@ -37,17 +37,17 @@ public class Zpix {
 	}
 	
 	private static Font buildS() {
-		s = Font.loadFont(Zpix.class.getResourceAsStream("/zpix.ttf"), S);
+		s = Font.loadFont(Zpix.class.getResourceAsStream("/betterfx/zpix.ttf"), S);
 		return s;
 	}
 	
 	private static Font buildM() {
-		m = Font.loadFont(Zpix.class.getResourceAsStream("/zpix.ttf"), M);
+		m = Font.loadFont(Zpix.class.getResourceAsStream("/betterfx/zpix.ttf"), M);
 		return m;
 	}
 	
 	private static Font buildL() {
-		l = Font.loadFont(Zpix.class.getResourceAsStream("/zpix.ttf"), L);
+		l = Font.loadFont(Zpix.class.getResourceAsStream("/betterfx/zpix.ttf"), L);
 		return l;
 	}
 }
