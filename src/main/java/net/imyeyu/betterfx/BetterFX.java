@@ -18,7 +18,7 @@ public class BetterFX {
 	public static final String VERSION = "1.2.0";
 
 	/** 样式文件 */
-	public static final String CSS = "betterfx/betterfx.css";
+	public static final String CSS = "/betterfx/style.css";
 
 	/** 白色 */
 	public static final Paint WHITE       = Paint.valueOf("#FFF");
