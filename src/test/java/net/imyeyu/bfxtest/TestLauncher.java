@@ -11,6 +11,12 @@ import net.imyeyu.bfxtest.ctrl.Main;
 public class TestLauncher {
 
 	public static void main(String[] args) {
+		{
+			// 禁止 DPI 缩放
+			System.setProperty("prism.allowhidpi", "false");
+			System.setProperty("glass.win.minHiDPI", "1");
+		}
+
 		Application.launch(Main.class, args);
 	}
 }
