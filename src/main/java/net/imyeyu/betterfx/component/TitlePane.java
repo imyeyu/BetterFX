@@ -14,17 +14,17 @@ import net.imyeyu.betterfx.extend.XBorder;
 /**
  * 分组面板
  * 特性：
- *     有标题（在边框上）
+ *     有标题（在边框左上）
  *     有边框
  *
- * 夜雨 创建于 2021/4/10 10:15
+ * 夜雨 创建于 2021-04-10 10:15
  */
-public class GroupPane extends StackPane {
+public class TitlePane extends StackPane {
 
 	private final Label title;
 	private Background bg;
 
-	public GroupPane(String title, Node node) {
+	public TitlePane(String title, Node node) {
 		bg = new BgFill(BetterFX.GRAY_WHITE).build();
 		this.title = new Label(title);
 		this.title.setTranslateY(-16);
