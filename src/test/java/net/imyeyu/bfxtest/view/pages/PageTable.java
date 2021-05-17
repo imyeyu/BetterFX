@@ -12,6 +12,11 @@ import javafx.scene.layout.VBox;
 
 import java.util.Random;
 
+/**
+ * 表格
+ *
+ * 夜雨 创建于 2021-05-16 23:42
+ */
 public class PageTable extends ScrollPane {
 
 	public PageTable() {

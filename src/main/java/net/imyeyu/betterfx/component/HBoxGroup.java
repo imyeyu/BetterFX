@@ -13,7 +13,7 @@ import net.imyeyu.betterfx.extend.XBorder;
 /**
  * 按钮组
  *
- * 夜雨 创建于 2021/4/13 14:56
+ * 夜雨 创建于 2021-04-13 14:56
  */
 public class HBoxGroup extends AnchorPane {
 

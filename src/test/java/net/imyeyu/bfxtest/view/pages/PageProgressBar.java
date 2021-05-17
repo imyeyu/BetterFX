@@ -7,6 +7,11 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * 进度条
+ *
+ * 夜雨 创建于 2021-05-16 23:40
+ */
 public class PageProgressBar extends ScrollPane {
 
 	private long i = 0;

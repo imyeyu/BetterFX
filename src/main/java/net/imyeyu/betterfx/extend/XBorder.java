@@ -21,7 +21,7 @@ import java.util.Random;
  * </pre>
  * top(), right(), bottom(), left() 不可重复使用，因为这是针对性边框宽度设置，重复使用只有最后一个有效
  *
- * 夜雨 创建于 2021/2/14 10:42
+ * 夜雨 创建于 2021-02-14 10:42
  */
 public class XBorder {
 

@@ -12,7 +12,7 @@ import net.imyeyu.betterfx.BetterFX;
  * 
  * @param <T> 字段
  *
- * 夜雨 创建于 2021/2/13 13:31
+ * 夜雨 创建于 2021-02-13 13:31
  */
 public class InputGroup<T extends Control> extends HBox {
 	

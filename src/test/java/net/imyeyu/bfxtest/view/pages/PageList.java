@@ -6,6 +6,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * 列表
+ *
+ * 夜雨 创建于 2021-05-16 23:39
+ */
 public class PageList extends ScrollPane {
 
 	public PageList() {

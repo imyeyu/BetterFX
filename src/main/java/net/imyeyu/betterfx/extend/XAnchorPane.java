@@ -3,6 +3,11 @@ package net.imyeyu.betterfx.extend;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * 锚点布局简化操作
+ *
+ * 夜雨 创建于 2021-05-16 23:31
+ */
 public class XAnchorPane extends AnchorPane {
 	
 	/**

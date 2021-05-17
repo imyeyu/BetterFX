@@ -16,7 +16,7 @@ import net.imyeyu.betterfx.extend.BgFill;
 /**
  * 滑动开关
  * 
- * 夜雨 创建于 2021/2/13 13:35
+ * 夜雨 创建于 2021-02-13 13:35
  */
 public class Switch extends HBox {
 

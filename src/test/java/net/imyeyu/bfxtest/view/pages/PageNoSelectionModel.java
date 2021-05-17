@@ -9,6 +9,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import net.imyeyu.betterfx.extend.NoSelectionModel;
 
+/**
+ * 空的选择器
+ *
+ * 夜雨 创建于 2021-05-16 23:40
+ */
 public class PageNoSelectionModel extends ScrollPane {
 
 	public PageNoSelectionModel() {
@@ -32,7 +37,6 @@ public class PageNoSelectionModel extends ScrollPane {
 			l1.setPrefSize(100, 200);
 			l1.setSelectionModel(new NoSelectionModel<>());
 			""");
-		code.getStyleClass().add("code");
 		code.setEditable(false);
 
 		VBox root = new VBox(6, explain0, explain1, new HBox(16, l0, l1), code);

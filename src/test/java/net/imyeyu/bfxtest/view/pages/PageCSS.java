@@ -9,6 +9,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * CSS 样式
+ *
+ * 夜雨 创建于 2021-05-16 23:37
+ */
 public class PageCSS extends TextArea {
 
 	public PageCSS() {
@@ -16,20 +21,21 @@ public class PageCSS extends TextArea {
 			@Override
 			public String call() throws Exception {
 				String result = "";
-				InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(BetterFX.CSS);
+				InputStream is = getClass().getResourceAsStream(BetterFX.CSS);
 				if (is != null) {
-					StringBuilder sb = new StringBuilder();
-					BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+					final StringBuilder sb = new StringBuilder();
+					InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
+					BufferedReader br = new BufferedReader(isr);
 					String input;
 					while ((input = br.readLine()) != null) {
 						sb.append(input).append("\r\n");
 					}
 					br.close();
+					isr.close();
 					is.close();
 					if (0 < sb.length()) {
 						result = sb.substring(0, sb.length() - 1);
 					}
-					is.close();
 				}
 				return result;
 			}
@@ -43,7 +49,6 @@ public class PageCSS extends TextArea {
 				appendText(e.toString());
 			}
 		}.start();
-		getStyleClass().add("code");
 		setEditable(false);
 	}
 }

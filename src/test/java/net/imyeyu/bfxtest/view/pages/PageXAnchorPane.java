@@ -6,6 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
+/**
+ * 锚点布局操作简化
+ *
+ * 夜雨 创建于 2021-05-16 23:42
+ */
 public class PageXAnchorPane extends ScrollPane {
 
 	public PageXAnchorPane() {
@@ -19,7 +24,6 @@ public class PageXAnchorPane extends ScrollPane {
 			AnchorPane.setRightAnchor(node, 10d);
 			AnchorPane.setBottomAnchor(node, 10d);
 			""");
-		before.getStyleClass().add("code");
 		before.setEditable(false);
 
 		Label labelAfter = new Label("现在可以这样做：");
@@ -28,7 +32,6 @@ public class PageXAnchorPane extends ScrollPane {
 			XAnchorPane.def(node, 10, 5, 10, 5);
 			XAnchorPane.def(node, 10, null, 10, null);
 			""");
-		after.getStyleClass().add("code");
 		after.setEditable(false);
 
 		setPadding(new Insets(14, 20, 0, 20));

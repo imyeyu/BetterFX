@@ -1,5 +1,6 @@
 package net.imyeyu.bfxtest.ctrl;
 
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TreeItem;
 import javafx.stage.Stage;
 import net.imyeyu.betterfx.component.dialog.Alert;
@@ -14,7 +15,7 @@ import net.imyeyu.bfxtest.view.pages.PageByteSpeed;
 import net.imyeyu.bfxtest.view.pages.PageCSS;
 import net.imyeyu.bfxtest.view.pages.PageComboBox;
 import net.imyeyu.bfxtest.view.pages.PageGroup;
-import net.imyeyu.bfxtest.view.pages.PageGroupPane;
+import net.imyeyu.bfxtest.view.pages.PageTitlePane;
 import net.imyeyu.bfxtest.view.pages.PageList;
 import net.imyeyu.bfxtest.view.pages.PageNoSelectionModel;
 import net.imyeyu.bfxtest.view.pages.PagePopup;
@@ -31,7 +32,7 @@ import java.awt.SplashScreen;
 /**
  * 主界面控制器
  *
- * 夜雨 创建于 2021/4/13 09:56
+ * 夜雨 创建于 2021-04-13 09:56
  */
 public class Main extends ViewMain {
 
@@ -72,7 +73,7 @@ public class Main extends ViewMain {
 		component.setExpanded(true);
 		{
 			final Page[] pages = new Page[] {
-				new Page("组布局", new PageGroupPane()),
+				new Page("组布局", new PageTitlePane()),
 				new Page("按钮", new PageButton()),
 				new Page("组件组", new PageGroup()),
 				new Page("输入", new PageTextInput()),
@@ -93,7 +94,7 @@ public class Main extends ViewMain {
 		{
 			final Page[] pages = new Page[] {
 				new Page("字节流速度", new PageByteSpeed()),
-				new Page("弹窗提示", new PagePopup()),
+				new Page("弹出提示", new PagePopup()),
 				new Page("快速构造异步执行", new PageRunAsync()),
 				new Page("快速构造稍后执行", new PageRunLater()),
 			};
@@ -101,8 +102,6 @@ public class Main extends ViewMain {
 				service.getChildren().add(new TreeItem<>(pages[i]));
 			}
 		}
-
-		nav.setRoots(betterfx, betterfxcss, extend, component, service);
 
 		nav.setOnMouseClicked(event -> {
 			if (event.getClickCount() == 2) {
@@ -122,11 +121,16 @@ public class Main extends ViewMain {
 				}
 			}
 		});
+		nav.setRoots(betterfx, betterfxcss, extend, component, service);
+		nav.getSelectionModel().select(betterfx);
+
+		SplitPane.setResizableWithParent(nav, false);
 		root.getItems().add(nav.getRoot().getChildren().get(0).getValue().getNode());
-		root.setDividerPositions(.25, .75);
+		root.setDividerPositions(.16, .84);
 
 		if (SplashScreen.getSplashScreen() != null) {
 			SplashScreen.getSplashScreen().close();
 		}
+		stage.show();
 	}
 }

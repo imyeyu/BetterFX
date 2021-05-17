@@ -7,6 +7,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * 下拉选择
+ *
+ * 夜雨 创建于 2021-05-16 23:36
+ */
 public class PageComboBox extends ScrollPane {
 
 	private static final String[] datas = {"数据0", "数据1", "数据2"};

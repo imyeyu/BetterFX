@@ -7,9 +7,9 @@ import javafx.scene.control.MultipleSelectionModel;
 /**
  * 空的选择器，适用于 ListView
  * 
- * @author 夜雨
- *
  * @param <T> 数据类型
+ *
+ * 夜雨 创建于 2021-05-16 23:29
  */
 public class NoSelectionModel<T> extends MultipleSelectionModel<T> {
 

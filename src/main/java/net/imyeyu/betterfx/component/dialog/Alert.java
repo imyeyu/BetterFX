@@ -19,7 +19,7 @@ import java.lang.ref.WeakReference;
 /**
  * <p>原 {@link javafx.scene.control.Alert} 源码，稍作修改</p>
  *
- * 夜雨 创建于 2021/4/25 17:14
+ * 夜雨 创建于 2021-04-25 17:14
  */
 public class Alert extends Dialog<ButtonType> {
 

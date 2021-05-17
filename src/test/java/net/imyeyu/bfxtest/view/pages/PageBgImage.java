@@ -6,6 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
+/**
+ * 背景图片
+ *
+ * 夜雨 创建于 2021-05-16 23:35
+ */
 public class PageBgImage extends ScrollPane {
 
 	public PageBgImage() {
@@ -23,7 +28,6 @@ public class PageBgImage extends ScrollPane {
 			        BackgroundSize.DEFAULT
 			    )
 			);""");
-		before.getStyleClass().add("code");
 		before.setEditable(false);
 
 		Label labelAfter = new Label("现在可以这样做：");
@@ -32,7 +36,6 @@ public class PageBgImage extends ScrollPane {
 			// 自适应背景
 			new BgImage("/bg.png").cover().build();
 			""");
-		after.getStyleClass().add("code");
 		after.setEditable(false);
 
 		setPadding(new Insets(14, 20, 0, 20));

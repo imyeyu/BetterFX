@@ -6,6 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
+/**
+ * 稍后执行
+ *
+ * 夜雨 创建于 2021-05-16 23:41
+ */
 public class PageRunLater extends ScrollPane {
 
 	public PageRunLater() {
@@ -18,7 +23,6 @@ public class PageRunLater extends ScrollPane {
 			    // 延时 1 秒后执行（属于 FX 线程）
 			})
 			""");
-		code.getStyleClass().add("code");
 		code.setEditable(false);
 
 		setPadding(new Insets(14, 20, 0, 20));

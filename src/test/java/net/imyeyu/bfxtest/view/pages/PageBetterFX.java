@@ -14,6 +14,11 @@ import net.imyeyu.betterfx.BetterFX;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 主页面
+ *
+ * 夜雨 创建于 2021-05-16 23:34
+ */
 public class PageBetterFX extends ScrollPane {
 
 	public PageBetterFX() {

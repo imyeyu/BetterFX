@@ -20,7 +20,7 @@ import java.util.Random;
  * new BgFill("red").radii(bgRadii).insets(bgInsets).build() // 设置圆角率和边距
  * </pre>
  * 
- * 夜雨 创建于 2021/2/13 12:52
+ * 夜雨 创建于 2021-02-13 12:52
  */
 public class BgFill {
 	

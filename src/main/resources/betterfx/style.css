@@ -5,12 +5,14 @@
 
 */
 @font-face {
-	src: url('./zpix.ttf');
+	src: url('./MinecraftAE.ttf');
 }
 
-/* Zpix 字体在 12 24 48 96 像素时表现为最清晰 */
+/* Minecraft AE 字体在 16 32 64 128 像素时表现为最清晰 */
 * {
-	-fx-font-family: 'Zpix';
+	-fx-tab-size: 4;
+	-fx-font-size: 16;
+	-fx-font-family: 'Minecraft AE';
 	-fx-font-smoothing-type: gray;
 }
 
@@ -46,9 +48,6 @@
 	-fx-background-radius: 0;
 }
 /* 树形结构 */
-.tree-view .tree-cell {
-	 -fx-indent: 1em;
-}
 .tree-view .tree-disclosure-node {
 	-fx-padding: .166667em .5em 0 .5em;
 }
@@ -126,10 +125,6 @@
 }
 .text-area .content {
 	-fx-background-color: -fx-control-inner-background;
-}
-.text-area.code {
-	-fx-font-size: 13;
-	-fx-font-family: "Consolas";
 }
 /* 滚动条 */
 .scroll-bar {

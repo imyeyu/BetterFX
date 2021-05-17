@@ -16,7 +16,7 @@ import net.imyeyu.bfxtest.bean.Page;
 /**
  * 主界面
  *
- * 夜雨 创建于 2021/4/13 09:54
+ * 夜雨 创建于 2021-04-13 09:54
  */
 public abstract class ViewMain extends Application {
 
@@ -52,8 +52,7 @@ public abstract class ViewMain extends Application {
 		stage.getIcons().add(new Image("betterfx/icon.png"));
 		stage.setTitle("BetterFX 测试程序");
 		stage.setScene(scene);
-		stage.setWidth(820);
-		stage.setHeight(520);
-		stage.show();
+		stage.setWidth(1100);
+		stage.setHeight(700);
 	}
 }

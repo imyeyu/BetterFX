@@ -11,6 +11,11 @@ import javafx.scene.layout.VBox;
 import net.imyeyu.betterfx.bean.PopupTips;
 import net.imyeyu.betterfx.service.PopupTipsService;
 
+/**
+ * 弹出提示
+ *
+ * 夜雨 创建于 2021/5/16 23:40
+ */
 public class PagePopup extends ScrollPane {
 
 	public PagePopup() {
@@ -34,8 +39,7 @@ public class PagePopup extends ScrollPane {
 		TextArea t3 = new TextArea("""
 			StackPane pane = new StackPane(new Button("但你点不到我"));
 			pane.setPadding(new Insets(6, 8, 6, 8));
-			PopupTipsService.install(t3, new PopupTips(pane));
-			""");
+			PopupTipsService.install(t3, new PopupTips(pane));""");
 		t3.setPrefHeight(64);
 		t3.setEditable(false);
 		t3.setPromptText("支持任何组件");

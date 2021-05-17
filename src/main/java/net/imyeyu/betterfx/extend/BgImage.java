@@ -14,7 +14,7 @@ import javafx.scene.layout.BackgroundSize;
  * 默认原图大小，不平铺，居原点
  * new BgImage("/cover.png").cover().build()
  * 
- * 夜雨 创建于 2021/2/13 12:53
+ * 夜雨 创建于 2021-02-13 12:53
  */
 public class BgImage {
 	

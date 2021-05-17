@@ -6,6 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
+/**
+ * 字节流速度
+ *
+ * 夜雨 创建于 2021-05-16 23:35
+ */
 public class PageByteSpeed extends ScrollPane {
 
 	public PageByteSpeed() {
@@ -39,7 +44,6 @@ public class PageByteSpeed extends ScrollPane {
 			}
 			""");
 		code.setPrefHeight(420);
-		code.getStyleClass().add("code");
 		code.setEditable(false);
 
 		setPadding(new Insets(14, 20, 0, 20));

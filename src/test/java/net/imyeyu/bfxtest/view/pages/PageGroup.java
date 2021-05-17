@@ -10,13 +10,18 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import net.imyeyu.betterfx.component.BorderPaneGroup;
 import net.imyeyu.betterfx.component.HBoxGroup;
-import net.imyeyu.betterfx.util.Zpix;
+import net.imyeyu.betterfx.util.MinecraftFont;
 
+/**
+ * 组
+ *
+ * 夜雨 创建于 2021-05-16 23:37
+ */
 public class PageGroup extends ScrollPane {
 
 	public PageGroup() {
 		Label labelBP = new Label("BorderPaneGroup 组件组：");
-		labelBP.setFont(Zpix.getM());
+		labelBP.setFont(MinecraftFont.getM());
 		TextField t0 = new TextField();
 		Button btn0 = new Button("左按钮");
 		BorderPaneGroup bpg = new BorderPaneGroup();
@@ -50,7 +55,7 @@ public class PageGroup extends ScrollPane {
 		bpg3.setRight(hg1);
 
 		Label labelHBox = new Label("HBoxGroup 组件组：");
-		labelHBox.setFont(Zpix.getM());
+		labelHBox.setFont(MinecraftFont.getM());
 		Button btn8 = new Button("按钮在组件组");
 		Button btn9 = new Button("ControlGroup");
 		Button btn10 = new Button("横向");
@@ -80,7 +85,6 @@ public class PageGroup extends ScrollPane {
 			HBoxGroup hboxg = new HBoxGroup(btn8, btn9, btn10, btn11);
 			""");
 		code.setPrefHeight(420);
-		code.getStyleClass().add("code");
 		code.setEditable(false);
 
 		VBox root = new VBox(6, labelBP, bpg, bpg1, bpg2, bpg3, labelHBox, new HBox(hboxg), code);

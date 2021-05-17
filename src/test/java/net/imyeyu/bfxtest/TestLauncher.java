@@ -6,7 +6,7 @@ import net.imyeyu.bfxtest.ctrl.Main;
 /**
  * 启动器
  *
- * 夜雨 创建于 2021/4/13 09:56
+ * 夜雨 创建于 2021-04-13 09:56
  */
 public class TestLauncher {
 
@@ -16,7 +16,6 @@ public class TestLauncher {
 			System.setProperty("prism.allowhidpi", "false");
 			System.setProperty("glass.win.minHiDPI", "1");
 		}
-
 		Application.launch(Main.class, args);
 	}
 }

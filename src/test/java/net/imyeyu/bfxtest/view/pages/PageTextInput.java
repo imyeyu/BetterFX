@@ -8,6 +8,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * 文本输入
+ *
+ * 夜雨 创建于 2021-05-16 23:42
+ */
 public class PageTextInput extends ScrollPane {
 
 	private static final String FULL = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA\nA";

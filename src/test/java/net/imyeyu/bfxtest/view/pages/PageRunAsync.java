@@ -6,6 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
+/**
+ * 异步执行
+ *
+ * 夜雨 创建于 2021-05-16 23:41
+ */
 public class PageRunAsync extends ScrollPane {
 
 	public PageRunAsync() {
@@ -30,7 +35,6 @@ public class PageRunAsync extends ScrollPane {
 			}.start();
 			""");
 		code.setPrefHeight(320);
-		code.getStyleClass().add("code");
 		code.setEditable(false);
 
 		setPadding(new Insets(14, 20, 0, 20));

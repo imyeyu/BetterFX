@@ -6,6 +6,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
+/**
+ * 边框操作简化
+ *
+ * 夜雨 创建于 2021/5/16 23:42
+ */
 public class PageXBorder extends ScrollPane {
 
 	public PageXBorder() {
@@ -22,7 +27,6 @@ public class PageXBorder extends ScrollPane {
 			    new Insets.EMPTY
 			));
 			""");
-		before.getStyleClass().add("code");
 		before.setEditable(false);
 
 		Label labelAfter = new Label("现在可以这样做：");
@@ -35,7 +39,6 @@ public class PageXBorder extends ScrollPane {
 			// 单边边框
 			new XBorder("red").top().build();
 			""");
-		after.getStyleClass().add("code");
 		after.setEditable(false);
 
 		setPadding(new Insets(14, 20, 0, 20));

@@ -16,6 +16,11 @@ import java.util.Optional;
 import static net.imyeyu.betterfx.component.dialog.Alert.NO;
 import static net.imyeyu.betterfx.component.dialog.Alert.YES;
 
+/**
+ * 弹窗
+ *
+ * 夜雨 创建于 2021-05-16 23:34
+ */
 public class PageAlert extends ScrollPane {
 
 	public PageAlert() {
@@ -40,7 +45,7 @@ public class PageAlert extends ScrollPane {
 		Button btn3 = new Button("询问");
 		btn3.setOnAction(event -> {
 			Alert alert = new Alert(Alert.AlertType.CONFIRMATION, YES, Alert.NO, Alert.CANCEL);
-			alert.setContentText("是什么淋湿了我的眼睛，看不清你远去的背影。\n是什么冰冷了我的心情，握不住你从前的温馨。\n是雨声喧哗了我的安宁，听不清自己哭泣的声音。\n是雨伞美丽了城市的风景，留不住身边匆忙的爱情。");
+			alert.setContentText("是什么淋湿了我的眼睛，\n看不清你远去的背影。\n是什么冰冷了我的心情，\n握不住你从前的温馨。\n是雨声喧哗了我的安宁，\n听不清自己哭泣的声音。\n是雨伞美丽了城市的风景，\n留不住身边匆忙的爱情。");
 			Optional<ButtonType> result = alert.showAndWait();
 			if (result.isPresent()) {
 				ButtonType buttonType = result.get();
@@ -63,7 +68,6 @@ public class PageAlert extends ScrollPane {
 			alert.setContentText("就算天空再深，看不出裂痕，眉头，仍骤满密云。");
 			alert.showAndWait();
 			""");
-		code.getStyleClass().add("code");
 		code.setEditable(false);
 
 		Label tips = new Label("注意 Alert 引用的是 net.imyeyu.betterfx.component.dialog.Alert，其参数也是这个包内参数");

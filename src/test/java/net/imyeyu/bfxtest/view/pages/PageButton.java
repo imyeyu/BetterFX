@@ -8,8 +8,13 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.extend.XBorder;
-import net.imyeyu.betterfx.util.Zpix;
+import net.imyeyu.betterfx.util.MinecraftFont;
 
+/**
+ * 按钮
+ *
+ * 夜雨 创建于 2021-05-16 23:35
+ */
 public class PageButton extends ScrollPane {
 
 	public PageButton() {
@@ -20,9 +25,9 @@ public class PageButton extends ScrollPane {
 		btn2.setBorder(new XBorder(BetterFX.RED, BetterFX.BLUE, BetterFX.ORANGE, BetterFX.GREEN).build());
 
 		Button btn7 = new Button("M 号字体");
-		Zpix.css(btn7, Zpix.M);
+		MinecraftFont.css(btn7, MinecraftFont.M);
 		Button btn8 = new Button("L 号字体");
-		Zpix.css(btn8, Zpix.L);
+		MinecraftFont.css(btn8, MinecraftFont.L);
 
 		FlowPane btns = new FlowPane(btn0, btn1, btn2, btn7, btn8);
 		btns.setVgap(6);
