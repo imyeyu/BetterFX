@@ -4,21 +4,37 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>net.imyeyu.fx</groupId>
-		<artifactId>YeyuFX</artifactId>
-		<version>1.0</version>
-	</parent>
-
-	<groupId>net.imyeyu.betterfx</groupId>
+	<groupId>net.imyeyu</groupId>
 	<artifactId>BetterFX</artifactId>
-	<packaging>jar</packaging>
-	<version>1.3</version>
+	<version>1.3.0</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.release>16</maven.compiler.release>
 		<maven.compiler.source>16</maven.compiler.source>
 		<maven.compiler.target>16</maven.compiler.target>
+		<fx.version>16</fx.version>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${fx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics</artifactId>
+			<version>${fx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-media</artifactId>
+			<version>${fx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-base</artifactId>
+			<version>${fx.version}</version>
+		</dependency>
+	</dependencies>
 </project>
