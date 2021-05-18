@@ -24,7 +24,7 @@ public class PageBetterFX extends ScrollPane {
 	public PageBetterFX() {
 		ImageView logo = new ImageView("/betterfx/logo.png");
 		Label version0 = new Label("BetterFX 版本: " + BetterFX.VERSION);
-		Label version1 = new Label("测试程序版本: 1.0.0");
+		Label version1 = new Label("测试程序版本: 1.0.1");
 
 		Label labelSource = new Label("开源：");
 		Hyperlink urlSource = new Hyperlink("https://www.imyeyu.net/article/public/aid136.html");

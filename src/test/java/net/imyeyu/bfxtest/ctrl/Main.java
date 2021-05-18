@@ -59,7 +59,7 @@ public class Main extends ViewMain {
 				new Page("XTreeView", (page) -> {
 					Alert alert = new Alert(Alert.AlertType.INFORMATION);
 					alert.setContentText("导航栏就是 XTreeView 树形结构，相对于原来的 TreeView，允许有多个根节点。\n\n使用方法和 TreeView 一样");
-					alert.showAndWait();
+					alert.show();
 					return false;
 				}),
 			};

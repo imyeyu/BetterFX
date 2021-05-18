@@ -320,7 +320,7 @@ public class XBorder {
 	 *
 	 * @return 边框
 	 */
-	public static final Border test(String color) {
+	public static Border test(String color) {
 		return new XBorder(color).build();
 	}
 
@@ -329,7 +329,7 @@ public class XBorder {
 	 *
 	 * @return 边框
 	 */
-	public static final Border test() {
+	public static Border test() {
 		Random r = new Random();
 		StringBuilder sb = new StringBuilder("#");
 		for (int i = 0; i < 6; i++) {

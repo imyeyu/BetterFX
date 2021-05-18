@@ -15,7 +15,7 @@ import net.imyeyu.betterfx.extend.XBorder;
  */
 public class BetterFX {
 
-	public static final String VERSION = "1.3.1";
+	public static final String VERSION = "1.3.2";
 
 	/** 样式文件 */
 	public static final String CSS = "/betterfx/style.css";
