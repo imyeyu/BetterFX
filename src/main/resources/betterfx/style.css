@@ -59,6 +59,15 @@
 	-fx-pref-width: 5;
 	-fx-pref-height: 9;
 }
+/* 表格 */
+.table-view .arrow,
+.tree-table-view .arrow {
+    -fx-shape: "M0,0h9v1H8v1H7v1H6v1H5v1H4V4H3V3H2V2H1V1H0V0z";
+	-fx-min-width: 9;
+	-fx-min-height: 5;
+	-fx-pref-width: 9;
+	-fx-pref-height: 5;
+}
 /* 下拉选择 */
 .combo-box {
 	-fx-border-color: -fx-text-box-border;
@@ -169,6 +178,7 @@
 .table-view .scroll-bar:vertical {
 	-fx-border-width: 0 0 0 1;
 	-fx-border-color: -bfx-border-color;
+	-fx-background-color: -fx-background;
 }
 
 .tree-view .scroll-bar:horizontal,

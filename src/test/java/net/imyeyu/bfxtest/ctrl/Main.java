@@ -73,7 +73,7 @@ public class Main extends ViewMain {
 		component.setExpanded(true);
 		{
 			final Page[] pages = new Page[] {
-				new Page("组布局", new PageTitlePane()),
+				new Page("标题布局", new PageTitlePane()),
 				new Page("按钮", new PageButton()),
 				new Page("组件组", new PageGroup()),
 				new Page("输入", new PageTextInput()),
@@ -103,31 +103,27 @@ public class Main extends ViewMain {
 			}
 		}
 
-		nav.setOnMouseClicked(event -> {
-			if (event.getClickCount() == 2) {
-				TreeItem<Page> selectedItem = nav.getSelectionModel().getSelectedItem();
-				if (selectedItem != null) {
-					final Page page = selectedItem.getValue();
-					if (page.getOnSelected() != null) {
-						if (!page.getOnSelected().handler(page)) { // 切换事件
-							return;
-						}
+		nav.setRoots(betterfx, betterfxcss, extend, component, service);
+		root.getItems().add(nav.getRoot().getChildren().get(0).getValue().getNode());
+		SplitPane.setResizableWithParent(nav, false);
+		nav.getSelectionModel().selectedItemProperty().addListener((obs, o, selectedItem) -> {
+			if (selectedItem != null) {
+				final Page page = selectedItem.getValue();
+				if (page.getOnSelected() != null) {
+					if (!page.getOnSelected().handler(page)) { // 切换事件
+						return;
 					}
-					if (selectedItem.getValue().getNode() != null) {
-						root.getItems().remove(1, 2);
-						root.getItems().add(selectedItem.getValue().getNode());
-						root.setDividerPositions(.25, .75);
-					}
+				}
+				if (selectedItem.getValue().getNode() != null) {
+					root.getItems().remove(1, 2);
+					root.getItems().add(selectedItem.getValue().getNode());
+					root.setDividerPositions(.25, .75);
 				}
 			}
 		});
-		nav.setRoots(betterfx, betterfxcss, extend, component, service);
 		nav.getSelectionModel().select(betterfx);
 
-		SplitPane.setResizableWithParent(nav, false);
-		root.getItems().add(nav.getRoot().getChildren().get(0).getValue().getNode());
 		root.setDividerPositions(.16, .84);
-
 		if (SplashScreen.getSplashScreen() != null) {
 			SplashScreen.getSplashScreen().close();
 		}

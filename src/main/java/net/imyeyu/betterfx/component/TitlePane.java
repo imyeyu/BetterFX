@@ -27,12 +27,12 @@ public class TitlePane extends StackPane {
 	public TitlePane(String title, Node node) {
 		bg = new BgFill(BetterFX.GRAY_WHITE).build();
 		this.title = new Label(title);
-		this.title.setTranslateY(-16);
+		this.title.setTranslateY(-20);
 		this.title.setPadding(new Insets(0, 6, 0, 6));
 		this.title.setBackground(bg);
 
 		setBorder(new XBorder(BetterFX.LIGHT_GRAY).build());
-		setPadding(new Insets(8));
+		setPadding(new Insets(12));
 		setAlignment(Pos.TOP_LEFT);
 		setBackground(bg);
 		getChildren().addAll(this.title, node);
