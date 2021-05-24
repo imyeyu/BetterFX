@@ -45,6 +45,7 @@
 /* --------------------------- 控件 --------------------------- */
 /* 按钮 */
 .button {
+    -fx-padding: .25em .833333em .166667em .833333em; /* 3 10 2 10 */
 	-fx-background-radius: 0;
 }
 /* 树形结构 */
@@ -118,6 +119,7 @@
 }
 /* 文本框 */
 .text-field {
+    -fx-padding: .25em .333333em; /* 3 4 */
 	-fx-background-color: -fx-text-box-border, -fx-control-inner-background;
 	-fx-background-radius: 0;
 }
@@ -133,6 +135,7 @@
 	-fx-background-color: -fx-focus-color, -fx-control-inner-background;
 }
 .text-area .content {
+    -fx-padding: 0.25em 0.333333em; /* 3 4 */
 	-fx-background-color: -fx-control-inner-background;
 }
 /* 滚动条 */
