@@ -40,18 +40,18 @@ public class BgImage {
 
 	/**
 	 * 构造背景图
-	 * 
-	 * @param img 图片位置
+	 *
+	 * @param url 图片位置
 	 */
+	public BgImage(String url) {
+		this(new Image(url));
+	}
 	public BgImage(Image img) {
 		this.img = img;
 		repeatX = repeatY = BackgroundRepeat.NO_REPEAT;
 		pos = BackgroundPosition.DEFAULT;
 		size = BackgroundSize.DEFAULT;
 		posH = posV = 0;
-	}
-	public BgImage(String url) {
-		this(new Image(url));
 	}
 	
 	/**
@@ -84,7 +84,7 @@ public class BgImage {
 		repeatY = repeat;
 		return this;
 	}
-	
+
 	/**
 	 * 水平对齐方式
 	 * 
@@ -100,6 +100,13 @@ public class BgImage {
 		resetPos();
 		return this;
 	}
+	public BgImage left(double size) {
+		return horizontal(Side.LEFT, size, false);
+	}
+	public BgImage right(double size) {
+		return horizontal(Side.RIGHT, size, false);
+	}
+
 	/**
 	 * 垂直对齐方式
 	 * 
@@ -114,6 +121,12 @@ public class BgImage {
 		posVAsPercent = asPercent;
 		resetPos();
 		return this;
+	}
+	public BgImage top(double size) {
+		return vertical(Side.TOP, size, false);
+	}
+	public BgImage bottom(double size) {
+		return vertical(Side.BOTTOM, size, false);
 	}
 	
 	/**
