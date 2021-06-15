@@ -3,27 +3,33 @@ package net.imyeyu.betterfx.service;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Popup;
+import javafx.stage.Stage;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.bean.PopupTips;
 
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 弹窗提示
- * 示例：
+ * <p>示例：
  * <pre>
- *     PopupTipsService.install(node, )
+ *     PopupTipsService.install(node, "文本提示");
+ *     PopupTipsService.install(node, new Image("/tips.png")); // 图片提示
+ *     PopupTipsService.install(node, new PopupTips(new Button("自定义组件提示")));
  * </pre>
  *
  * 夜雨 创建于 2021-04-22 19:48
  */
-public class PopupTipsService extends Popup {
+public class PopupTipsService extends Popup implements BetterFX {
 
 	private static PopupTipsService service;                     // 单例对象
 	private final Map<Node, PopupTips> popups = new HashMap<>(); // 注册数据
@@ -39,14 +45,16 @@ public class PopupTipsService extends Popup {
 		shadow.setColor(Color.valueOf("#3333"));
 
 		root.setEffect(shadow);
-		root.setBackground(BetterFX.BG_DEFAULT);
-		root.setBorder(BetterFX.BORDER_DEFAULT);
+		root.setMaxWidth(960);
+		root.setBackground(BG_DEFAULT);
+		root.setBorder(BORDER_DEFAULT);
 
 		StackPane shadowPane = new StackPane();
 		shadowPane.setPadding(new Insets(3));
 		shadowPane.setBackground(Background.EMPTY);
 		shadowPane.getChildren().add(root);
 
+		getScene().setFill(null);
 		getContent().add(shadowPane);
 	}
 
@@ -56,8 +64,11 @@ public class PopupTipsService extends Popup {
 	 * @param node 安装提示的组件
 	 */
 	public void show(Node node) {
+		root.setBorder(BORDER_DEFAULT);
+		root.setBackground(BG_DEFAULT);
 		root.getChildren().setAll(popups.get(node).getNode());
-		show(node.getScene().getWindow());
+		Point location = MouseInfo.getPointerInfo().getLocation();
+		show(node.getScene().getWindow(), location.x, location.y);
 	}
 
 	/**
@@ -70,6 +81,26 @@ public class PopupTipsService extends Popup {
 			setX(event.getScreenX() + 8);
 			setY(event.getScreenY() + 6);
 		}
+	}
+
+	/**
+	 * 为组件安装文本弹窗提示
+	 *
+	 * @param node 组件
+	 * @param text  图片
+	 */
+	public static void install(Node node, String text) {
+		install(node, new PopupTips(text));
+	}
+
+	/**
+	 * 为组件安装图片弹窗提示
+	 *
+	 * @param node 组件
+	 * @param img  图片
+	 */
+	public static void install(Node node, Image img) {
+		install(node, new PopupTips(img));
 	}
 
 	/**
@@ -87,10 +118,12 @@ public class PopupTipsService extends Popup {
 		// 悬停事件
 		popupTips.setHoverListener((obs, o, isHovered) -> {
 			if (isHovered) {
-				// 显示
-				service.show(node);
-				if (popupTips.getOnShow() != null) {
-					popupTips.getOnShow().handler();
+				if (popupTips.isEnable()) {
+					// 显示
+					if (popupTips.getOnShow() != null) {
+						popupTips.getOnShow().handler(service.root, popupTips.getNode());
+					}
+					service.show(node);
 				}
 			} else {
 				// 隐藏
