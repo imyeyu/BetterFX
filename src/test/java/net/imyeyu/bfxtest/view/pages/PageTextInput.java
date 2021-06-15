@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import net.imyeyu.betterfx.component.TextAreaField;
 
 /**
  * 文本输入
@@ -22,7 +23,12 @@ public class PageTextInput extends ScrollPane {
 		TextField t1 = new TextField("123");
 		TextArea t2 = new TextArea(FULL);
 
-		FlowPane nodes = new FlowPane(t0, t1, t2);
+		TextAreaField taf0 = new TextAreaField("文本域型文本框0");
+		taf0.setPrefWidth(440);
+		TextAreaField taf1 = new TextAreaField("文本域型文本框1");
+		taf1.setPrefWidth(440);
+
+		FlowPane nodes = new FlowPane(t0, t1, t2, taf0, taf1);
 		nodes.setVgap(6);
 		nodes.setHgap(8);
 
