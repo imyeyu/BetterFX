@@ -2,6 +2,7 @@ package net.imyeyu.bfxtest.ctrl;
 
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TreeItem;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import net.imyeyu.betterfx.component.dialog.Alert;
 import net.imyeyu.bfxtest.bean.Page;

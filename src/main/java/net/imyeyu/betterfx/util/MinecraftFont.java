@@ -2,17 +2,21 @@ package net.imyeyu.betterfx.util;
 
 import javafx.scene.Node;
 import javafx.scene.text.Font;
+import net.imyeyu.betterfx.BetterFX;
+
+import java.io.InputStream;
 
 /**
- * 最象素字体，默认 24px，小号 12px
+ * Minecraft 字体
  * 
  * 夜雨 创建于 2021-04-14 00:11
  */
 public class MinecraftFont {
 	
 	public static int S = 16, M = 32, L = 64;
-	
+
 	private static Font s, m, l;
+	private static final String NAME = "MinecraftAE.ttf";
 	
 	/**
 	 * 通过 CSS 修改字号，请置于组件样式修改的最后
@@ -37,17 +41,17 @@ public class MinecraftFont {
 	}
 	
 	private static Font buildS() {
-		s = Font.loadFont(MinecraftFont.class.getResourceAsStream("/betterfx/zpix.ttf"), S);
+		s = Font.loadFont(MinecraftFont.class.getResourceAsStream(BetterFX.STATIC_DIR + NAME), S);
 		return s;
 	}
 	
 	private static Font buildM() {
-		m = Font.loadFont(MinecraftFont.class.getResourceAsStream("/betterfx/zpix.ttf"), M);
+		m = Font.loadFont(MinecraftFont.class.getResourceAsStream(BetterFX.STATIC_DIR + NAME), M);
 		return m;
 	}
 	
 	private static Font buildL() {
-		l = Font.loadFont(MinecraftFont.class.getResourceAsStream("/betterfx/zpix.ttf"), L);
+		l = Font.loadFont(MinecraftFont.class.getResourceAsStream(BetterFX.STATIC_DIR + NAME), L);
 		return l;
 	}
 }

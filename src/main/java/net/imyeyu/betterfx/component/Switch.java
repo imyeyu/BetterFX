@@ -18,11 +18,11 @@ import net.imyeyu.betterfx.extend.BgFill;
  * 
  * 夜雨 创建于 2021-02-13 13:35
  */
-public class Switch extends HBox {
+public class Switch extends HBox implements BetterFX {
 
 	private final BooleanProperty selectedProperty = new SimpleBooleanProperty(false);
 	private final Background bg = new BgFill("#9B9B9B").build();
-	private final Background bgSelected = new BgFill("#393").build();
+	private final Background bgSelected = new BgFill("#177CB0").build();
 
 	private final HBox box;
 	private final Label label;
@@ -53,7 +53,7 @@ public class Switch extends HBox {
 		box = new HBox(region);
 		box.setPadding(new Insets(1));
 		box.setPrefSize(28, 15);
-		box.setBorder(BetterFX.BORDER_DEFAULT);
+		box.setBorder(BORDER_DEFAULT);
 		box.setBackground(new BgFill("#EEE", "#DADADA").toBottom().build());
 		// 标签
 		label = new Label(text);
@@ -69,7 +69,7 @@ public class Switch extends HBox {
 			getChildren().addAll(label, box);
 		}
 		// 事件
-		setOnMouseClicked(e -> {
+		box.setOnMouseClicked(e -> {
 			selectedProperty.set(!selectedProperty.get());
 			requestFocus();
 		});
@@ -77,9 +77,7 @@ public class Switch extends HBox {
 			box.setAlignment(_isSelected ? Pos.CENTER_RIGHT : Pos.CENTER_LEFT);
 			region.setBackground(_isSelected ? bgSelected : bg);
 		});
-		focusedProperty().addListener((obs, o, isFocused) -> {
-			box.setBorder(isFocused ? BetterFX.BORDER_FOCUSED : BetterFX.BORDER_DEFAULT);
-		});
+		focusedProperty().addListener((obs, o, isFocused) -> box.setBorder(isFocused ? BORDER_FOCUSED : BORDER_DEFAULT));
 
 		this.selectedProperty.set(isSelected);
 	}

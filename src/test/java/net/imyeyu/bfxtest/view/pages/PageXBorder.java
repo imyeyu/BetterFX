@@ -15,7 +15,7 @@ public class PageXBorder extends ScrollPane {
 
 	public PageXBorder() {
 		Label explain0 = new Label("位置：net.imyeyu.betterfx.extend.XBorder");
-		Label explain1 = new Label("说明：简化锚点布局的操作");
+		Label explain1 = new Label("说明：简化边框构造");
 
 		Label labelBefore = new Label("原来的：");
 		TextArea before = new TextArea("""

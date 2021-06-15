@@ -15,9 +15,9 @@ import net.imyeyu.betterfx.extend.XBorder;
  *
  * 夜雨 创建于 2021-04-13 14:56
  */
-public class BorderPaneGroup extends AnchorPane {
+public class BorderPaneGroup extends AnchorPane implements BetterFX {
 
-	private static final Border BORDER = new XBorder(BetterFX.LIGHT_GRAY).right().build();
+	private static final Border BORDER = new XBorder(LIGHT_GRAY).right().build();
 
 	private final Region line; // 补偿线
 	private final BorderPane root;
@@ -26,7 +26,7 @@ public class BorderPaneGroup extends AnchorPane {
 		root = new BorderPane();
 
 		line = new Region();
-		line.setBackground(new BgFill(BetterFX.FOCUSED_COLOR).build());
+		line.setBackground(new BgFill(FOCUSED_DEFAULT).build());
 		line.setPrefWidth(1);
 		line.setVisible(false);
 		line.prefHeightProperty().bind(heightProperty());
@@ -57,7 +57,8 @@ public class BorderPaneGroup extends AnchorPane {
 
 	public void setRight(Node node) {
 		node.setTranslateX(-1);
-		addFocusedLine(node, -1);
+		addFocusedLine(node, root.getLeft() == null ? -1 : -2);
+
 		root.setRight(node);
 		AnchorPane.setRightAnchor(root, -1d);
 	}
@@ -65,7 +66,7 @@ public class BorderPaneGroup extends AnchorPane {
 	private void addFocusedLine(Node node, double offset) {
 		node.focusedProperty().addListener((obs, o, isFocused) -> {
 			if (isFocused) {
-				Bounds bounds = node.localToParent(node.getBoundsInLocal());
+				Bounds bounds = node.localToParent(node.getLayoutBounds());
 				line.setTranslateX(bounds.getMaxX() + offset);
 			}
 			line.setVisible(isFocused);

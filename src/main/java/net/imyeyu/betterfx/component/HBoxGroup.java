@@ -15,15 +15,15 @@ import net.imyeyu.betterfx.extend.XBorder;
  *
  * 夜雨 创建于 2021-04-13 14:56
  */
-public class HBoxGroup extends AnchorPane {
+public class HBoxGroup extends AnchorPane implements BetterFX {
 
-	private static final Border BORDER = new XBorder(BetterFX.LIGHT_GRAY).right().build();
+	private static final Border BORDER = new XBorder(LIGHT_GRAY).right().build();
 
 	public HBoxGroup(Control... controls) {
 		HBox root = new HBox();
 		// 补偿线
 		Region line = new Region();
-		line.setBackground(new BgFill(BetterFX.FOCUSED_COLOR).build());
+		line.setBackground(new BgFill(FOCUSED_DEFAULT).build());
 		line.setPrefWidth(1);
 		line.setVisible(false);
 		line.prefHeightProperty().bind(controls[0].heightProperty());

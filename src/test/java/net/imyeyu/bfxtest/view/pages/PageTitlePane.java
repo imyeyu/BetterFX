@@ -17,8 +17,8 @@ public class PageTitlePane extends ScrollPane {
 
 	public PageTitlePane() {
 		TextArea code = new TextArea("""
-			GroupPane gp = new GroupPane("标题", new Label("内容"));
-			BorderPane.setMargin(gp, new Insets(12, 0, 0, 0)); // 可能需要外边距
+			TitlePane gp = new TitlePane("标题", new Label("内容"));
+			BorderPane.setMargin(tp, new Insets(12, 0, 0, 0)); // 可能需要外边距
 			""");
 		code.setEditable(false);
 

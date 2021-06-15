@@ -19,20 +19,20 @@ import net.imyeyu.betterfx.extend.XBorder;
  *
  * 夜雨 创建于 2021-04-10 10:15
  */
-public class TitlePane extends StackPane {
+public class TitlePane extends StackPane implements BetterFX {
 
 	private final Label title;
 	private Background bg;
 
 	public TitlePane(String title, Node node) {
-		bg = new BgFill(BetterFX.GRAY_WHITE).build();
+		bg = new BgFill(GRAY_WHITE).build();
 		this.title = new Label(title);
-		this.title.setTranslateY(-20);
+		this.title.setTranslateY(-24);
 		this.title.setPadding(new Insets(0, 6, 0, 6));
 		this.title.setBackground(bg);
 
-		setBorder(new XBorder(BetterFX.LIGHT_GRAY).build());
-		setPadding(new Insets(12));
+		setBorder(new XBorder(LIGHT_GRAY).build());
+		setPadding(new Insets(16, 12, 12, 12));
 		setAlignment(Pos.TOP_LEFT);
 		setBackground(bg);
 		getChildren().addAll(this.title, node);

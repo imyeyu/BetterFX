@@ -14,7 +14,7 @@ import net.imyeyu.betterfx.BetterFX;
  *
  * 夜雨 创建于 2021-02-13 13:31
  */
-public class InputGroup<T extends Control> extends HBox {
+public class InputGroup<T extends Control> extends HBox implements BetterFX {
 	
 	private Label before, after;
 	private final T control;
@@ -34,7 +34,7 @@ public class InputGroup<T extends Control> extends HBox {
 	public InputGroup(String before, T control, String after) {
 		if (before != null) {
 			this.before = new Label(before);
-			this.before.setTextFill(BetterFX.GRAY);
+			this.before.setTextFill(GRAY);
 			this.before.setOnMouseClicked(e -> control.requestFocus());
 			getChildren().add(this.before);
 		}
@@ -44,7 +44,7 @@ public class InputGroup<T extends Control> extends HBox {
 
 		if (after != null) {
 			this.after = new Label(after);
-			this.after.setTextFill(BetterFX.GRAY);
+			this.after.setTextFill(GRAY);
 			this.after.setOnMouseClicked(e -> control.requestFocus());
 			getChildren().add(this.after);
 		}
