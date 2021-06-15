@@ -25,7 +25,51 @@ public class XAnchorPane extends AnchorPane {
 		if (right != null) setRightAnchor(node, right.doubleValue());
 		if (bottom != null) setBottomAnchor(node, bottom.doubleValue());
 	}
-	
+
+	/**
+	 * 根据左上角定位
+	 *
+	 * @param node 组件
+	 * @param left 距离左边
+	 * @param top  距离上边
+	 */
+	public static void leftTop(Node node, Number left, Number top) {
+		def(node, top, null, null, left);
+	}
+
+	/**
+	 * 根据右上角定位
+	 *
+	 * @param node  组件
+	 * @param right 距离右边
+	 * @param top   距离上边
+	 */
+	public static void rightTop(Node node, Number right, Number top) {
+		def(node, top, right, null, null);
+	}
+
+	/**
+	 * 根据左下角定位
+	 *
+	 * @param node   组件
+	 * @param left   距离左边
+	 * @param bottom 距离下边
+	 */
+	public static void leftBottom(Node node, Number left, Number bottom) {
+		def(node, null, null, bottom, left);
+	}
+
+	/**
+	 * 根据右下角定位
+	 *
+	 * @param node   组件
+	 * @param right  距离右边
+	 * @param bottom 距离下边
+	 */
+	public static void rightBottom(Node node, Number right, Number bottom) {
+		def(node, null, right, bottom, null);
+	}
+
 	/**
 	 * 四边完全贴紧父级组件
 	 * 
