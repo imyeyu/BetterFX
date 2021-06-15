@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import net.imyeyu.betterfx.component.HBoxGroup;
 import net.imyeyu.betterfx.component.dialog.Alert;
+import net.imyeyu.betterfx.component.dialog.AlertTextArea;
 
 import java.util.Optional;
 
@@ -44,7 +45,7 @@ public class PageAlert extends ScrollPane {
 		});
 		Button btn3 = new Button("询问");
 		btn3.setOnAction(event -> {
-			Alert alert = new Alert(Alert.AlertType.CONFIRMATION, YES, Alert.NO, Alert.CANCEL);
+			Alert alert = new Alert(Alert.AlertType.CONFIRMATION, YES, NO, Alert.CANCEL);
 			alert.setContentText("是什么淋湿了我的眼睛，\n看不清你远去的背影。\n是什么冰冷了我的心情，\n握不住你从前的温馨。\n是雨声喧哗了我的安宁，\n听不清自己哭泣的声音。\n是雨伞美丽了城市的风景，\n留不住身边匆忙的爱情。");
 			Optional<ButtonType> result = alert.showAndWait();
 			if (result.isPresent()) {
@@ -62,17 +63,20 @@ public class PageAlert extends ScrollPane {
 				}
 			}
 		});
-
+		HBox topBtns = new HBox(new HBoxGroup(btn0, btn1, btn2, btn3));
 		TextArea code = new TextArea("""
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setContentText("就算天空再深，看不出裂痕，眉头，仍骤满密云。");
 			alert.showAndWait();
 			""");
 		code.setEditable(false);
-
 		Label tips = new Label("注意 Alert 引用的是 net.imyeyu.betterfx.component.dialog.Alert，其参数也是这个包内参数");
 
+		// 其他弹窗
+		Button btn4 = new Button("文本域弹窗");
+		btn4.setOnAction(event -> new AlertTextArea(Alert.AlertType.INFORMATION, "标签内容", "文本域内容").show());
+
 		setPadding(new Insets(14, 0, 0, 20));
-		setContent(new VBox(12, new HBox(new HBoxGroup(btn0, btn1, btn2, btn3)), code, tips));
+		setContent(new VBox(12, topBtns, code, tips, btn4));
 	}
 }
