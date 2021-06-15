@@ -21,12 +21,12 @@ import java.lang.ref.WeakReference;
  *
  * 夜雨 创建于 2021-04-25 17:14
  */
-public class Alert extends Dialog<ButtonType> {
+public class Alert extends Dialog<ButtonType> implements BetterFX {
 
 	/**
 	 * 弹窗类型
 	 *
-	 * 夜雨 创建于 2021/4/25 18:17
+	 * 夜雨 创建于 2021-04-25 18:17
 	 */
 	public enum AlertType {
 		NONE,
@@ -46,16 +46,18 @@ public class Alert extends Dialog<ButtonType> {
 	public static final ButtonType NEXT     = new ButtonType("下一步", ButtonData.NEXT_FORWARD);
 	public static final ButtonType PREVIOUS = new ButtonType("上一步", ButtonData.BACK_PREVIOUS);
 	// 图标
-	private static final Image ICON_INFO    = new Image("betterfx/dialog-information16x.png");
-	private static final Image ICON_WARNING = new Image("betterfx/dialog-warning16x.png");
-	private static final Image ICON_ERROR   = new Image("betterfx/dialog-error16x.png");
-	private static final Image ICON_CONFIRM = new Image("betterfx/dialog-confirmation16x.png");
+	public static final Image ICON_INFO    = new Image("betterfx/dialog-information16x.png");
+	public static final Image ICON_WARNING = new Image("betterfx/dialog-warning16x.png");
+	public static final Image ICON_ERROR   = new Image("betterfx/dialog-error16x.png");
+	public static final Image ICON_CONFIRM = new Image("betterfx/dialog-confirmation16x.png");
 
 	private WeakReference<DialogPane> dialogPaneRef;
 
 	private boolean installingDefaults = false;
 	private boolean hasCustomButtons;
 	private boolean hasCustomTitle = false;
+
+	private final Stage stage;
 
 	private final ListChangeListener<ButtonType> buttonsListener = change -> {
 		if (!installingDefaults) hasCustomButtons = true;
@@ -74,10 +76,11 @@ public class Alert extends Dialog<ButtonType> {
 
 		final DialogPane dialogPane = getDialogPane();
 		dialogPane.setContentText(contentText);
-		dialogPane.setBorder(BetterFX.BORDER_TOP);
+		dialogPane.setBorder(BORDER_TOP);
 		dialogPane.getStyleClass().add("alert");
-		dialogPane.getScene().getStylesheets().add(BetterFX.CSS);
-		((Stage) dialogPane.getScene().getWindow()).getIcons().add(getIcon(alertType));
+		dialogPane.getScene().getStylesheets().add(CSS);
+		stage = (Stage) dialogPane.getScene().getWindow();
+		stage.getIcons().add(getIcon(alertType));
 
 		dialogPaneRef = new WeakReference<>(dialogPane);
 
@@ -144,6 +147,10 @@ public class Alert extends Dialog<ButtonType> {
 			case ERROR             -> ICON_ERROR;
 			case CONFIRMATION      -> ICON_CONFIRM;
 		};
+	}
+
+	public Stage getStage() {
+		return stage;
 	}
 
 	public final AlertType getAlertType() {
