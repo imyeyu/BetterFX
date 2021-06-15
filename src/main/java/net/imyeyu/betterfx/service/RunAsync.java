@@ -30,6 +30,7 @@ import javafx.concurrent.Task;
 public abstract class RunAsync<T> extends Service<T> {
 	
 	public RunAsync() {
+		setOnSucceeded(e -> onFinish());
 		valueProperty().addListener((obs, o, t) -> onFinish(t));
 		exceptionProperty().addListener((obs, o, e) -> onException(e));
 	}
@@ -49,9 +50,14 @@ public abstract class RunAsync<T> extends Service<T> {
 	 * @throws Exception 处理异常
 	 */
 	public abstract T call() throws Exception;
+
+	/** 完成事件（FX 线程，只要线程结束就会调用） */
+	public void onFinish() {
+
+	}
 	
 	/**
-	 * 完成事件（FX 线程）
+	 * 完成事件（FX 线程，返回非 null 时触发）
 	 * 
 	 * @param t 执行事件返回值
 	 */
