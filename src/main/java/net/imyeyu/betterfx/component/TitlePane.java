@@ -31,7 +31,7 @@ public class TitlePane extends StackPane implements BetterFX {
 		this.title.setPadding(new Insets(0, 6, 0, 6));
 		this.title.setBackground(bg);
 
-		setBorder(new XBorder(LIGHT_GRAY).build());
+		setBorder(BORDER_DEFAULT);
 		setPadding(new Insets(16, 12, 12, 12));
 		setAlignment(Pos.TOP_LEFT);
 		setBackground(bg);
