@@ -114,7 +114,7 @@ public class Alert extends Dialog<ButtonType> implements BetterFX {
 				case ERROR        -> newTitle = "错误";
 				case CONFIRMATION -> {
 					newTitle = "询问";
-					newButtons = new ButtonType[]{OK, CANCEL};
+					newButtons = new ButtonType[]{YES, NO};
 				}
 			}
 			installingDefaults = true;
