@@ -9,7 +9,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.extend.BgFill;
-import net.imyeyu.betterfx.extend.XBorder;
 
 /**
  * 分组面板

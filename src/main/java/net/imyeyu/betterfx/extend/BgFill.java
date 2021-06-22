@@ -124,7 +124,7 @@ public class BgFill {
 	 * 
 	 * @return 背景
 	 */
-	public static final Background test() {
+	public static Background test() {
 		Random r = new Random();
 		StringBuilder sb = new StringBuilder("#");
 		for (int i = 0; i < 6; i++) {
