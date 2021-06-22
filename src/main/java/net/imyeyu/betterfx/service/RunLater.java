@@ -7,17 +7,22 @@ import javafx.concurrent.Task;
  * 快速构造稍后执行
  * <br>示例:
  * <pre>
- * RunLater.time(1000).event(() -> {
+ * RunLater.event(() -> {
  *     // 延时 1 秒后执行（属于 FX 线程）
- * })
+ * }, 1000);
  * </pre>
  * 
  * 夜雨 创建于 2021-02-13 13:14
  */
 public class RunLater extends Service<Void> {
 	
-	private long delay = 0;
-	
+	private final long delay;
+
+	public RunLater(Event event, long delay) {
+		this.delay = delay;
+		setOnSucceeded(e -> event.handle());
+	}
+
 	protected Task<Void> createTask() {
 		return new Task<>() {
 			protected Void call() throws Exception {
@@ -27,24 +32,8 @@ public class RunLater extends Service<Void> {
 		};
 	}
 	
-	/**
-	 * 延时（毫秒）
-	 * 
-	 * @param delay 延时毫秒
-	 */
-	public void setDelay(long delay) {
-		this.delay = delay;
-	}
-	
-	public void event(Event event) {
-		this.setOnSucceeded(e -> event.handle());
-		this.start();
-	}
-	
-	public static RunLater time(long delay) {
-		RunLater r = new RunLater();
-		r.setDelay(delay);
-		return r;
+	public static void event(Event event, long delay) {
+		new RunLater(event, delay).start();
 	}
 	
 	public interface Event {
