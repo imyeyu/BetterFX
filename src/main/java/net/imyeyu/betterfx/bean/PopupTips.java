@@ -47,6 +47,7 @@ public class PopupTips {
 			label.setText(text);
 		} else {
 			Label label = new Label(text);
+			label.setMaxWidth(520);
 			label.setPadding(PADDING_TEXT);
 			label.setWrapText(true);
 			node = label;
@@ -121,6 +122,6 @@ public class PopupTips {
 	 * 夜雨 创建于 2021/4/23 00:45
 	 */
 	public interface OnHide {
-		void handler();
+		void handler(StackPane root, Node node);
 	}
 }
