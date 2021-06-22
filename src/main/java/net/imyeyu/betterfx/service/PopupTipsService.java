@@ -9,7 +9,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Popup;
-import javafx.stage.Stage;
 import net.imyeyu.betterfx.BetterFX;
 import net.imyeyu.betterfx.bean.PopupTips;
 
@@ -45,7 +44,6 @@ public class PopupTipsService extends Popup implements BetterFX {
 		shadow.setColor(Color.valueOf("#3333"));
 
 		root.setEffect(shadow);
-		root.setMaxWidth(960);
 		root.setBackground(BG_DEFAULT);
 		root.setBorder(BORDER_DEFAULT);
 
@@ -129,7 +127,7 @@ public class PopupTipsService extends Popup implements BetterFX {
 				// 隐藏
 				service.hide();
 				if (popupTips.getOnHide() != null) {
-					popupTips.getOnHide().handler();
+					popupTips.getOnHide().handler(service.root, popupTips.getNode());
 				}
 			}
 		});
@@ -150,6 +148,11 @@ public class PopupTipsService extends Popup implements BetterFX {
 		PopupTips popupTips = service.getPopups().get(node);
 		node.hoverProperty().removeListener(popupTips.getHoverListener());
 		service.getPopups().remove(node);
+	}
+
+	/** @return true 为该组件已安装提示插件 */
+	public static boolean isInstalled(Node node) {
+		return service != null && service.getPopups().get(node) != null;
 	}
 
 	/** @return 构造器 */
