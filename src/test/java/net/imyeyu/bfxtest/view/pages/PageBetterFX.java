@@ -19,11 +19,11 @@ import java.util.Date;
  *
  * 夜雨 创建于 2021-05-16 23:34
  */
-public class PageBetterFX extends ScrollPane {
+public class PageBetterFX extends ScrollPane implements BetterFX {
 
 	public PageBetterFX() {
 		ImageView logo = new ImageView("/betterfx/logo.png");
-		Label version0 = new Label("BetterFX 版本: " + BetterFX.VERSION);
+		Label version0 = new Label("BetterFX 版本: " + VERSION);
 		Label version1 = new Label("测试程序版本: 1.0.1");
 
 		Label labelSource = new Label("开源：");

@@ -14,14 +14,14 @@ import java.nio.charset.StandardCharsets;
  *
  * 夜雨 创建于 2021-05-16 23:37
  */
-public class PageCSS extends TextArea {
+public class PageCSS extends TextArea implements BetterFX {
 
 	public PageCSS() {
 		new RunAsync<String>() {
 			@Override
 			public String call() throws Exception {
 				String result = "";
-				InputStream is = getClass().getResourceAsStream(BetterFX.CSS);
+				InputStream is = getClass().getResourceAsStream(CSS);
 				if (is != null) {
 					final StringBuilder sb = new StringBuilder();
 					InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);

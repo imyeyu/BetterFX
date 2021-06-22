@@ -18,7 +18,7 @@ import net.imyeyu.bfxtest.bean.Page;
  *
  * 夜雨 创建于 2021-04-13 09:54
  */
-public abstract class ViewMain extends Application {
+public abstract class ViewMain extends Application implements BetterFX {
 
 	protected XTreeView<Page> nav;
 	protected SplitPane root;
@@ -48,7 +48,7 @@ public abstract class ViewMain extends Application {
 		root.getItems().add(nav);
 
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(BetterFX.CSS);
+		scene.getStylesheets().add(CSS);
 		stage.getIcons().add(new Image("betterfx/icon.png"));
 		stage.setTitle("BetterFX 测试程序");
 		stage.setScene(scene);

@@ -4,14 +4,12 @@ import javafx.scene.Node;
 import javafx.scene.text.Font;
 import net.imyeyu.betterfx.BetterFX;
 
-import java.io.InputStream;
-
 /**
  * Minecraft 字体
  * 
  * 夜雨 创建于 2021-04-14 00:11
  */
-public class MinecraftFont {
+public class MinecraftFont implements BetterFX {
 	
 	public static int S = 16, M = 32, L = 64;
 
@@ -41,17 +39,17 @@ public class MinecraftFont {
 	}
 	
 	private static Font buildS() {
-		s = Font.loadFont(MinecraftFont.class.getResourceAsStream(BetterFX.STATIC_DIR + NAME), S);
+		s = Font.loadFont(MinecraftFont.class.getResourceAsStream(STATIC_DIR + NAME), S);
 		return s;
 	}
 	
 	private static Font buildM() {
-		m = Font.loadFont(MinecraftFont.class.getResourceAsStream(BetterFX.STATIC_DIR + NAME), M);
+		m = Font.loadFont(MinecraftFont.class.getResourceAsStream(STATIC_DIR + NAME), M);
 		return m;
 	}
 	
 	private static Font buildL() {
-		l = Font.loadFont(MinecraftFont.class.getResourceAsStream(BetterFX.STATIC_DIR + NAME), L);
+		l = Font.loadFont(MinecraftFont.class.getResourceAsStream(STATIC_DIR + NAME), L);
 		return l;
 	}
 }
