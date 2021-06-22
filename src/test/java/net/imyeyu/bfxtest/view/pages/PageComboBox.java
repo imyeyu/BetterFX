@@ -1,7 +1,9 @@
 package net.imyeyu.bfxtest.view.pages;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
@@ -24,7 +26,12 @@ public class PageComboBox extends ScrollPane {
 		cb1.setEditable(true);
 		cb1.getItems().addAll(datas);
 
-		FlowPane btns = new FlowPane(cb0, cb1);
+		DatePicker date = new DatePicker();
+		date.setEditable(false);
+
+		ColorPicker color = new ColorPicker();
+
+		FlowPane btns = new FlowPane(cb0, cb1, date, color);
 		btns.setVgap(6);
 		btns.setHgap(8);
 
