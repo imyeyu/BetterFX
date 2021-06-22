@@ -15,8 +15,9 @@ import net.imyeyu.betterfx.extend.XBorder;
  */
 public interface BetterFX {
 
+	/** 版本号 */
 	String VERSION = "1.3.4";
-
+	/** 静态资源路径 */
 	String STATIC_DIR = "/betterfx/";
 	/** 样式文件 */
 	String CSS = STATIC_DIR + "style.css";
@@ -56,7 +57,6 @@ public interface BetterFX {
 	// 边框
 	Border BORDER_DEFAULT = new XBorder(LIGHT_GRAY).build();
 	Border BORDER_FOCUSED = new XBorder(FOCUSED_DEFAULT).build();
-
 	// 单四边
 	Border BORDER_TOP = new XBorder(LIGHT_GRAY).top().build();
 	Border BORDER_LEFT = new XBorder(LIGHT_GRAY).left().build();
