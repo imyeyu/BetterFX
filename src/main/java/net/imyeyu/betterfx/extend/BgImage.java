@@ -9,54 +9,65 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 /**
  * 背景图片封装。build() 作为导出作用，最后执行
  * 默认原图大小，不平铺，居原点
  * new BgImage("/cover.png").cover().build()
- * 
+ *
  * 夜雨 创建于 2021-02-13 12:53
  */
 public class BgImage {
 	
 	private BackgroundRepeat repeatX, repeatY;
-	private BackgroundPosition pos;
-	private BackgroundSize size;
-	
+
 	private Side sideH, sideV;
-	private double posH, posV;
-	private boolean posHAsPercent = false, posVAsPercent = false;
-	
+	private double posH, posV, sizeW, sizeH;
+	private boolean posHAsPercent, posVAsPercent, sizeWAsPercent, sizeHAsPercent, isContain, isCover;
+
 	private final Image img;
-	
-	/**
-	 * 重置位置对象
-	 * 
-	 */
-	private void resetPos() {
-		sideH = sideH == null ? Side.LEFT : sideH;
-		sideV = sideV == null ? Side.TOP : sideV;
-		pos = new BackgroundPosition(sideH, posH, posHAsPercent, sideV, posV, posVAsPercent);
-	}
 
 	/**
-	 * 构造背景图
+	 * 背景图构造器
 	 *
-	 * @param url 图片位置
+	 * @param url 图片位置（程序内资源）
 	 */
 	public BgImage(String url) {
 		this(new Image(url));
 	}
+
+	/**
+	 * 背景图构造器
+	 *
+	 * @param file 图片文件（程序外资源）
+	 */
+	public BgImage(File file) throws FileNotFoundException {
+		this(new Image(new FileInputStream(file)));
+	}
+
+	/**
+	 * 背景图构造器
+	 *
+	 * @param img 图像
+	 */
 	public BgImage(Image img) {
 		this.img = img;
-		repeatX = repeatY = BackgroundRepeat.NO_REPEAT;
-		pos = BackgroundPosition.DEFAULT;
-		size = BackgroundSize.DEFAULT;
+		// 初始化数据
+		repeatX = repeatY = BackgroundRepeat.REPEAT;
+		sideH = Side.LEFT;
+		sideV = Side.TOP;
 		posH = posV = 0;
+		sizeW = img.getWidth();
+		sizeH = img.getHeight();
+		posHAsPercent = posVAsPercent = sizeWAsPercent = sizeHAsPercent = isContain = isCover = false;
 	}
-	
+
 	/**
 	 * 双轴平铺方式
-	 * 
+	 *
 	 * @param repeat 填充方式
 	 * @return 图像背景构造器
 	 */
@@ -66,7 +77,7 @@ public class BgImage {
 	}
 	/**
 	 * X 轴平铺方式
-	 * 
+	 *
 	 * @param repeat 填充方式
 	 * @return 图像背景构造器
 	 */
@@ -76,7 +87,7 @@ public class BgImage {
 	}
 	/**
 	 * Y 轴平铺方式
-	 * 
+	 *
 	 * @param repeat 填充方式
 	 * @return 图像背景构造器
 	 */
@@ -86,91 +97,170 @@ public class BgImage {
 	}
 
 	/**
+	 * 背景位置
+	 *
+	 * @param sideH      相对水平位置，左或右
+	 * @param posH       相对水平距离
+	 * @param hAsPercent true 为水平距离是百分比
+	 * @param sideV      相对垂直位置，上或下
+	 * @param posV       相对垂直距离
+	 * @param vAsPercent true 为垂直距离是百分比
+	 * @return 图像背景构造器
+	 */
+	public BgImage pos(Side sideH, double posH, boolean hAsPercent, Side sideV, double posV, boolean vAsPercent) {
+		this.sideH = sideH;
+		this.sideV = sideV;
+		this.posH = posH;
+		this.posV = posV;
+		this.posHAsPercent = hAsPercent;
+		this.posVAsPercent = vAsPercent;
+		return this;
+	}
+
+	/**
 	 * 水平对齐方式
-	 * 
+	 *
 	 * @param side      相对位置
 	 * @param size      相对距离
-	 * @param asPercent 是否为百分比
+	 * @param asPercent true 百分比数据
 	 * @return 图像背景构造器
 	 */
 	public BgImage horizontal(Side side, double size, boolean asPercent) {
 		sideH = side;
 		posH = size;
 		posHAsPercent = asPercent;
-		resetPos();
 		return this;
 	}
+
+	/**
+	 * 居左
+	 *
+	 * @param size 距离
+	 * @return 图像背景构造器
+	 */
 	public BgImage left(double size) {
 		return horizontal(Side.LEFT, size, false);
 	}
+
+	/**
+	 * 居右
+	 *
+	 * @param size 距离
+	 * @return 图像背景构造器
+	 */
 	public BgImage right(double size) {
 		return horizontal(Side.RIGHT, size, false);
 	}
 
 	/**
 	 * 垂直对齐方式
-	 * 
+	 *
 	 * @param side      相对位置
 	 * @param size      相对距离
-	 * @param asPercent 是否为百分比
+	 * @param asPercent true 百分比数据
 	 * @return 图像背景构造器
 	 */
 	public BgImage vertical(Side side, double size, boolean asPercent) {
 		sideV = side;
 		posV = size;
 		posVAsPercent = asPercent;
-		resetPos();
 		return this;
 	}
+
+	/**
+	 * 居上
+	 *
+	 * @param size 距离
+	 * @return 图像背景构造器
+	 */
 	public BgImage top(double size) {
 		return vertical(Side.TOP, size, false);
 	}
+
+
+	/**
+	 * 居下
+	 *
+	 * @param size 距离
+	 * @return 图像背景构造器
+	 */
 	public BgImage bottom(double size) {
 		return vertical(Side.BOTTOM, size, false);
 	}
-	
+
+	/**
+	 * 坐标轴定位
+	 *
+	 * @param x 轴
+	 * @param y 轴
+	 * @return 图像背景构造器
+	 */
+	public BgImage xy(double x, double y) {
+		sideH = Side.LEFT;
+		sideV = Side.TOP;
+		posH = x;
+		posV = y;
+		posHAsPercent = posVAsPercent = false;
+		return this;
+	}
+
 	/**
 	 * 图像大小
-	 * 
+	 *
 	 * @param width           宽度
 	 * @param height          高度
-	 * @param widthAsPercent  宽度是否为百分比
-	 * @param heightAsPercent 高度是否为百分比
-	 * @param isContain       尽量最大化图像
-	 * @param isCover         保持比例
+	 * @param widthAsPercent  true 为参数是百分比
+	 * @param heightAsPercent true 为参数是百分比
+	 * @param isContain       true 为尽量最大化图像
+	 * @param isCover         true 为保持比例
 	 * @return 图像背景构造器
 	 */
 	public BgImage size(double width, double height, boolean widthAsPercent, boolean heightAsPercent, boolean isContain, boolean isCover) {
-		size = new BackgroundSize(width, height, widthAsPercent, heightAsPercent, isContain, isCover);
+		sizeW = width;
+		sizeH = height;
+		sizeWAsPercent = widthAsPercent;
+		sizeHAsPercent = heightAsPercent;
+		this.isContain = isContain;
+		this.isCover = isCover;
 		return this;
 	}
+
+	/**
+	 * 自适应保持比例时尽量最大化的背景
+	 *
+	 * @return 图像背景构造器
+	 */
 	public BgImage cover() {
 		return size(-1, -1, true, true, true, true);
 	}
-	public BgImage coverCenter() {
-		return size(1, -1, true, false, false, false).vertical(Side.TOP, .5, true);
-	}
-	
-	/**
-	 * 居中图像
-	 * 
-	 * @return 图像背景构造器
-	 */
+
 	public BgImage center() {
-		pos = BackgroundPosition.CENTER;
+		sideH = Side.LEFT;
+		sideV = Side.TOP;
+		posH = posV = 0;
+		posHAsPercent = posVAsPercent = true;
 		return this;
 	}
-	
-	/**
-	 * 构造背景图
-	 * 
-	 * @return 背景
-	 */
+
+	/** @return 最终构造背景 */
 	public Background build() {
-		return new Background(new BackgroundImage(img, repeatX, repeatY, pos, size));
+		return new Background(
+			new BackgroundImage(
+				img,
+				repeatX, repeatY,
+				new BackgroundPosition(
+					sideH, posH, posHAsPercent,
+					sideV, posV, posVAsPercent
+				), new BackgroundSize(
+					sizeW, sizeH,
+					sizeWAsPercent,sizeHAsPercent,
+					isContain,
+					isCover
+				)
+			)
+		);
 	}
-
-
+	
 	/**
 	 * JavaFX 设置组件背景，底色为默认
 	 *
