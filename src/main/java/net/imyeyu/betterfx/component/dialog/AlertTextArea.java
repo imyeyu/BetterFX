@@ -6,6 +6,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 /**
  * 带文本域的弹窗
  *
@@ -22,6 +26,21 @@ public class AlertTextArea extends Alert {
 
 	public AlertTextArea(AlertType alertType, String contentTextArea, ButtonType... buttons) {
 		this(alertType, "", contentTextArea, buttons);
+	}
+
+	public AlertTextArea(AlertType alertType, String contentText, Throwable throwable, ButtonType... buttons) {
+		this(alertType, contentText, "", ButtonType.OK);
+		try {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw, true);
+			throwable.printStackTrace(pw);
+			textArea.setText(sw.toString());
+			pw.flush();
+			pw.close();
+			sw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public AlertTextArea(AlertType alertType, String contentText, String contentTextArea, ButtonType... buttons) {
