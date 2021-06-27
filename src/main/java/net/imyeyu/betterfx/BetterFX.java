@@ -32,6 +32,8 @@ public interface BetterFX {
 	Paint BLACK       = Paint.valueOf("#000");
 	/** 橙色 */
 	Paint ORANGE      = Paint.valueOf("#F60");
+	/** 黄色 */
+	Paint YELLOW      = Paint.valueOf("#FF0");
 	/** 绿色 */
 	Paint GREEN       = Paint.valueOf("#393");
 	/** 灰色 */
